@@ -1,2 +1,2 @@
 # arj-analytics-portfolio
-My personal portfolio of SQL &amp; data analysis projects
+A collection of SQL and data analytics projects demonstrating data modeling, visualization, and actionable insights.
