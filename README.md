@@ -5,7 +5,7 @@ This repository highlights projects where I apply SQL, data modeling, and visual
 
 ---
 
-## Featured Project
+## Featured Projects
 
 ### [Healthcare Clinic Efficiency](./healthcare-clinic-efficiency)
 - Analyzed appointment data to identify wait time patterns and no-show trends  
@@ -14,13 +14,20 @@ This repository highlights projects where I apply SQL, data modeling, and visual
 
 ---
 
+### [Mortgage Client Portfolio Analysis](./mortgage-client-portfolio-analysis)
+- Analyzed ~100 mortgage client accounts to uncover payment behavior and risk factors  
+- Built SQL queries and dashboards to highlight delinquency trends and outstanding balances  
+- Automated recurring reports to support client portfolio management
+
+---
+
 ## Skills & Tools
 
 - **SQL** (Postgres, Oracle)  
 - **Excel & Tableau** (data visualization, dashboards)  
 - **Data Modeling & Analysis**  
-- **Python** (data cleaning, basic scripting)  
-- **Healthcare & Operational Analytics**
+- **Python** (data cleaning, automation)  
+- **Healthcare & Financial Analytics**
 
 ---
 
