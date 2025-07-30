@@ -1,26 +1,37 @@
 # Customer Churn Analysis
 
-### Overview
-This project analyzes customer churn patterns for a simulated telecom service provider. Using SQL for data analysis, Tableau/Excel for visualization, and an HTML dashboard for presentation, it demonstrates how to identify at-risk customers and provide actionable retention strategies.
+## Overview
+This project analyzes customer churn patterns for a simulated telecom service provider. It combines **SQL analysis**, **visual dashboards**, and a **custom HTML dashboard** to showcase actionable insights and retention strategies.
 
-### Objectives
-- Calculate churn rates across plans and demographics
-- Identify key factors driving churn (usage, complaints, tenure)
-- Build visualizations and present findings in an interactive HTML dashboard
+## Objectives
+- Measure churn rates across customer plans and regions
+- Identify key churn drivers (complaints, usage, demographics)
+- Present findings in a visually interactive HTML dashboard
 
-### Data
-Simulated dataset including:
-- **Customers Table:** demographics, plan type, signup date
-- **Usage Table:** monthly data usage, call minutes
-- **Complaints Table:** number of complaints per month
-- **Churn Flag Table:** whether the customer churned (Yes/No)
+## Data
+Simulated dataset with 3 tables:
+- **Customers:** Demographics, plan type, churn flag
+- **Usage:** Monthly data usage and call minutes
+- **Complaints:** Monthly complaints per customer
 
-### Tools
+## Tools
 - **SQL:** Joins, aggregations, churn segmentation
-- **Excel/Tableau:** Visual dashboards for churn trends and factors
-- **HTML/CSS:** Basic dashboard to present insights in portfolio format
+- **Excel/Tableau:** Visualizations of churn trends and drivers
+- **HTML/CSS:** Dashboard presentation of insights
 
-### Key Insights
-- Higher churn among lower-tier plans and heavy complaint users
-- Seasonal churn spikes during billing cycle renewals
-- Recommendations: improve complaint resolution, loyalty perks for at-risk plans
+## Key Insights
+- Basic plan customers have the highest churn
+- Higher complaint frequency correlates strongly with churn
+- Retained customers typically consume more monthly data
+
+---
+
+### **View Dashboard**
+[Click here to view the interactive HTML dashboard](./HTML_Dashboard/index.html)
+
+---
+
+### Files
+- [SQL Queries](./SQL_Queries_Churn.sql)  
+- [Charts Folder](./Charts)  
+- [HTML Dashboard](./HTML_Dashboard/index.html)
