@@ -27,7 +27,7 @@ Simulated dataset with 3 tables:
 ---
 
 ### **View Dashboard**
-[Click here to view the interactive HTML dashboard](./HTML_Dashboard/index.html)
+[Click here to view the interactive HTML dashboard](https://arjjoon24.github.io/arj-analytics-portfolio/customer-churn-analysis/HTML_Dashboard/index.html)
 
 ---
 
