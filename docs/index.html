@@ -3,64 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Churn Analysis Dashboard</title>
+    <title>Arjun Puri – Data Analytics Portfolio</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
             background-color: #f9f9f9;
+            margin: 20px;
             color: #333;
         }
         h1 {
             text-align: center;
             color: #2c3e50;
         }
-        h2 {
+        .projects {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
             margin-top: 30px;
-            color: #34495e;
         }
-        .chart {
-            text-align: center;
-            margin: 20px 0;
-        }
-        img {
-            max-width: 600px;
+        .project {
+            background: white;
+            padding: 15px;
             border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 5px;
-            background-color: white;
+            border-radius: 8px;
+        }
+        a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #2980b9;
         }
     </style>
 </head>
 <body>
 
-    <h1>Customer Churn Analysis Dashboard</h1>
+    <h1>Arjun Puri – Data Analytics Portfolio</h1>
 
-    <h2>Overview</h2>
-    <p>This dashboard presents an analysis of customer churn patterns for a telecom service provider. Insights were derived using SQL queries and visualized in a Tableau-style format.</p>
-
-    <h2>Key Insights</h2>
-    <ul>
-        <li>Churn rates are highest among <strong>Basic plan</strong> customers.</li>
-        <li>Customers with <strong>high complaint levels</strong> are significantly more likely to churn.</li>
-        <li>Retained customers tend to use more data monthly compared to churned customers.</li>
-    </ul>
-
-    <h2>Visualizations</h2>
-
-    <div class="chart">
-        <h3>Churn Rate by Plan Type</h3>
-        <img src="https://raw.githubusercontent.com/Arjjoon24/arj-analytics-portfolio/main/customer-churn-analysis/Charts/Chart_Churn_By_Plan_Final.png" alt="Churn Rate by Plan Type">
-    </div>
-
-    <div class="chart">
-        <h3>Churn Rate by Complaint Level</h3>
-        <img src="https://raw.githubusercontent.com/Arjjoon24/arj-analytics-portfolio/main/customer-churn-analysis/Charts/Chart_Complaints_vs_Churn_Final.png" alt="Churn Rate by Complaint Level">
-    </div>
-
-    <div class="chart">
-        <h3>Average Data Usage by Churn Status</h3>
-        <img src="https://raw.githubusercontent.com/Arjjoon24/arj-analytics-portfolio/main/customer-churn-analysis/Charts/Chart_Usage_vs_Churn_Final.png" alt="Average Data Usage by Churn Status">
+    <div class="projects">
+        <div class="project">
+            <a href="https://arjjoon24.github.io/arj-analytics-portfolio/healthcare/">
+                Healthcare Clinic Efficiency
+            </a>
+            <p>SQL and dashboard analysis of clinic wait times and no-show trends.</p>
+        </div>
+        <div class="project">
+            <a href="https://arjjoon24.github.io/arj-analytics-portfolio/mortgage/">
+                Mortgage Client Portfolio Analysis
+            </a>
+            <p>SQL and visualization of ~100 mortgage client accounts, highlighting risk and payment behavior.</p>
+        </div>
+        <div class="project">
+            <a href="https://arjjoon24.github.io/arj-analytics-portfolio/churn-dashboard/">
+                Customer Churn Analysis
+            </a>
+            <p>Comprehensive churn analysis combining SQL, Tableau-style charts, and an HTML dashboard presentation.</p>
+        </div>
     </div>
 
 </body>
