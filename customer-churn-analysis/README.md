@@ -27,11 +27,11 @@ Simulated dataset with 3 tables:
 ---
 
 ### **View Dashboard**
-[Click here to view the interactive HTML dashboard](https://arjjoon24.github.io/arj-analytics-portfolio/customer-churn-analysis/HTML_Dashboard/index.html)
+[Click here to view the interactive HTML dashboard](https://arjjoon24.github.io/arj-analytics-portfolio/churn-dashboard/)
 
 ---
 
 ### Files
 - [SQL Queries](./SQL_Queries_Churn.sql)  
 - [Charts Folder](./Charts)  
-- [HTML Dashboard](./HTML_Dashboard/index.html)
+- [HTML Dashboard (Code Version)](./HTML_Dashboard/index.html)
