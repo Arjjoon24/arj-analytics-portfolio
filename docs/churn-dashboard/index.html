@@ -11,18 +11,9 @@
             background-color: #f9f9f9;
             color: #333;
         }
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-        h2 {
-            margin-top: 30px;
-            color: #34495e;
-        }
-        .chart {
-            text-align: center;
-            margin: 20px 0;
-        }
+        h1 { text-align: center; color: #2c3e50; }
+        h2 { margin-top: 30px; color: #34495e; }
+        .chart { text-align: center; margin: 20px 0; }
         img {
             max-width: 600px;
             border: 1px solid #ddd;
@@ -30,38 +21,53 @@
             padding: 5px;
             background-color: white;
         }
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .back-btn:hover {
+            background-color: #34495e;
+        }
     </style>
 </head>
 <body>
 
-    <h1>Customer Churn Analysis Dashboard</h1>
+<a href="../" class="back-btn">← Back to Homepage</a>
 
-    <h2>Overview</h2>
-    <p>This dashboard presents an analysis of customer churn patterns for a telecom service provider. Insights were derived using SQL queries and visualized in a Tableau-style format.</p>
+<h1>Customer Churn Analysis Dashboard</h1>
 
-    <h2>Key Insights</h2>
-    <ul>
-        <li>Churn rates are highest among <strong>Basic plan</strong> customers.</li>
-        <li>Customers with <strong>high complaint levels</strong> are significantly more likely to churn.</li>
-        <li>Retained customers tend to use more data monthly compared to churned customers.</li>
-    </ul>
+<h2>Overview</h2>
+<p>This dashboard presents an analysis of customer churn patterns for a telecom service provider. Insights were derived using SQL queries and visualized in a Tableau-style format.</p>
 
-    <h2>Visualizations</h2>
+<h2>Key Insights</h2>
+<ul>
+    <li>Churn rates are highest among <strong>Basic plan</strong> customers.</li>
+    <li>Customers with <strong>high complaint levels</strong> are significantly more likely to churn.</li>
+    <li>Retained customers tend to use more data monthly compared to churned customers.</li>
+</ul>
 
-    <div class="chart">
-        <h3>Churn Rate by Plan Type</h3>
-        <img src="Chart_Churn_By_Plan_Final.png" alt="Churn Rate by Plan Type">
-    </div>
+<h2>Visualizations</h2>
 
-    <div class="chart">
-        <h3>Churn Rate by Complaint Level</h3>
-        <img src="Chart_Complaints_vs_Churn_Final.png" alt="Churn Rate by Complaint Level">
-    </div>
+<div class="chart">
+    <h3>Churn Rate by Plan Type</h3>
+    <img src="Chart_Churn_By_Plan_Final.png" alt="Churn Rate by Plan Type">
+</div>
 
-    <div class="chart">
-        <h3>Average Data Usage by Churn Status</h3>
-        <img src="Chart_Usage_vs_Churn_Final.png" alt="Average Data Usage by Churn Status">
-    </div>
+<div class="chart">
+    <h3>Churn Rate by Complaint Level</h3>
+    <img src="Chart_Complaints_vs_Churn_Final.png" alt="Churn Rate by Complaint Level">
+</div>
+
+<div class="chart">
+    <h3>Average Data Usage by Churn Status</h3>
+    <img src="Chart_Usage_vs_Churn_Final.png" alt="Average Data Usage by Churn Status">
+</div>
 
 </body>
 </html>
