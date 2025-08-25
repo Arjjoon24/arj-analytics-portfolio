@@ -1,3 +1,5 @@
+![Cover](assets/healthcare_cover.png)
+
 # 📊 Improving Clinic Efficiency with SQL & Tableau
 
 ### Objective
