@@ -36,6 +36,7 @@ Welcome 👋 This repository showcases my analytics projects where I use SQL, Py
 - **Python** (data cleaning, automation, pandas)  
 - **Data Modeling & KPI Analysis**  
 - **Healthcare & Financial Analytics**  
+- **Markdown & HTML for project documentation**  
 
 ---
 
