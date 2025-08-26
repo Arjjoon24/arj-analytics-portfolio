@@ -1,0 +1,46 @@
+:root{
+  --bg:#0f1320; /* deep navy */
+  --card:#141a2a; 
+  --text:#eaf0ff; 
+  --muted:#a9b3c9;
+  --accent:#6ea8fe; /* blue */
+  --accent2:#b07cff; /* purple */
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font:16px/1.6 system-ui,Segoe UI,Inter,Arial}
+a{color:var(--accent);text-decoration:none}
+a:hover{opacity:.85}
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.hero{
+  position:relative; border-radius:20px; overflow:hidden; margin:20px 0 28px;
+  background: radial-gradient(1200px 600px at -10% -10%, rgba(110,168,254,.25), transparent 60%),
+              radial-gradient(900px 500px at 110% 10%, rgba(176,124,255,.2), transparent 60%),
+              linear-gradient(160deg,#12182a 0%,#0e1322 100%);
+}
+.hero-inner{display:grid; grid-template-columns:1.2fr 1fr; gap:18px; padding:28px}
+.hero img{width:100%; height:100%; object-fit:cover; border-radius:16px}
+.hero h1{margin:0 0 6px; font-size:32px}
+.hero p{margin:6px 0 14px; color:var(--muted)}
+.badges{display:flex; gap:8px; flex-wrap:wrap}
+.badge{background:#1e2742; color:#cfe0ff; padding:6px 10px; border-radius:999px; font-size:12px}
+
+.section h2{font-size:20px; color:#dbe4ff; margin:12px 0}
+.grid{display:grid; grid-template-columns:repeat(12,1fr); gap:16px}
+.card{
+  grid-column: span 12; background:var(--card); border:1px solid #1f2742; 
+  border-radius:16px; overflow:hidden; transition:transform .15s ease, border-color .15s ease;
+}
+@media(min-width:720px){ .card{grid-column: span 6} }
+@media(min-width:1024px){ .card{grid-column: span 4} }
+.card:hover{transform:translateY(-2px); border-color:#33406b}
+.card img{width:100%; height:160px; object-fit:cover}
+.card .body{padding:14px}
+.card h3{margin:0 0 6px; font-size:16px}
+.card p{margin:0; color:var(--muted); font-size:14px}
+.cta{display:inline-flex; gap:8px; align-items:center; margin-top:10px; font-weight:600}
+
+.footer{color:#93a0bd; font-size:13px; text-align:center; padding:26px 8px}
+.footer a{color:#cfe0ff}
+.nav{display:flex; justify-content:space-between; align-items:center; padding:8px 0 0}
+.nav a{color:#cfe0ff; opacity:.9}
+.nav a:hover{opacity:1}
