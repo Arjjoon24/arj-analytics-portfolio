@@ -44,3 +44,27 @@ a:hover{opacity:.85}
 .nav{display:flex; justify-content:space-between; align-items:center; padding:8px 0 0}
 .nav a{color:#cfe0ff; opacity:.9}
 .nav a:hover{opacity:1}
+
+/* list spacing for experience */
+.section .body ul{margin:10px 0 0 18px; padding:0}
+.section .body li{margin:6px 0}
+
+/* === Highlights section polish === */
+#highlights .card {
+  background: linear-gradient(180deg, #1a223a, #151b2f);
+  border: 1px solid #2b3558;
+  box-shadow: 0 2px 8px rgba(0,0,0,.25);
+  transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+
+#highlights .card:hover {
+  transform: translateY(-3px);
+  border-color: #3b4a79;
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+}
+
+#highlights h3 {
+  color: #6ea8fe; /* matches your accent blue */
+  font-size: 18px;
+  margin-bottom: 6px;
+}
