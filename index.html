@@ -18,9 +18,7 @@
       padding: 10px 0 12px;
       transition: box-shadow 0.3s ease;
     }
-    .nav.scrolled {
-      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
-    }
+    .nav.scrolled { box-shadow: 0 2px 8px rgba(0,0,0,0.35); }
 
     /* back to top button with fade+slide-in */
     #backToTop {
@@ -41,6 +39,7 @@
       transition: opacity 0.3s ease, transform 0.25s ease, box-shadow 0.2s ease;
       z-index: 1000;
       box-shadow: 0 3px 8px rgba(0,0,0,.25);
+      pointer-events: auto;
     }
     #backToTop.show {
       opacity: 0.95;
@@ -54,7 +53,7 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
   <div class="container">
 
     <!-- Top Nav -->
@@ -267,12 +266,13 @@
   </div>
 
   <!-- Back to Top Button -->
-  <button id="backToTop" aria-label="Back to top">↑ Top</button>
+  <button id="backToTop" type="button" aria-label="Back to top">↑ Top</button>
 
   <script>
     const backToTop = document.getElementById("backToTop");
     const navbar = document.getElementById("navbar");
 
+    // Show/hide effects on scroll
     window.addEventListener("scroll", () => {
       if (window.scrollY > 400) {
         backToTop.classList.add("show");
@@ -284,6 +284,17 @@
         navbar.classList.add("scrolled");
       } else {
         navbar.classList.remove("scrolled");
+      }
+    });
+
+    // Reliable click listener (works even if inline handlers are ignored)
+    backToTop.addEventListener("click", () => {
+      try {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } catch (e) {
+        // Fallback for older browsers
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
       }
     });
   </script>
