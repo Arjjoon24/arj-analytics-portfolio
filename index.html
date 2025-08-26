@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="auto">
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
@@ -9,120 +9,124 @@
   <style>
     html { scroll-behavior: smooth; }
 
-    /* ===== Scroll Progress Bar (top of page) ===== */
+    /* =========================================================
+       THEME VARIABLES
+       Your site.css defines the dark palette in :root already.
+       We override variables for LIGHT MODE here.
+       ========================================================= */
+    @media (prefers-color-scheme: light) {
+      html[data-theme="auto"] {
+        /* light palette */
+        --bg:#f6f8ff;
+        --card:#ffffff;
+        --text:#0e1220;
+        --muted:#55607a;
+        --accent:#3b7cff;
+        --accent2:#7a4bff;
+      }
+    }
+    html[data-theme="light"] {
+      --bg:#f6f8ff;
+      --card:#ffffff;
+      --text:#0e1220;
+      --muted:#55607a;
+      --accent:#3b7cff;
+      --accent2:#7a4bff;
+    }
+    html[data-theme="dark"] {
+      /* match your existing dark tokens (from site.css) */
+      --bg:#0f1320;
+      --card:#141a2a;
+      --text:#eaf0ff;
+      --muted:#a9b3c9;
+      --accent:#6ea8fe;
+      --accent2:#b07cff;
+    }
+
+    /* ===== Scroll Progress Bar ===== */
     #progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 3px;
-      width: 0%;
-      background: linear-gradient(90deg, #6ea8fe, #b07cff);
-      box-shadow: 0 0 8px rgba(110,168,254,.6);
-      z-index: 1001;
-      transition: width 0.08s linear;
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent);
+      z-index: 1001; transition: width 0.08s linear;
     }
 
     /* navbar: fully transparent at top; glass when scrolled */
     .nav {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+      position: sticky; top: 0; z-index: 1000;
       background: transparent;
       padding: 10px 0 12px;
-      transition: box-shadow 0.3s ease, background 0.25s ease, backdrop-filter 0.25s ease, border-bottom-color 0.25s ease;
+      transition: box-shadow .3s ease, background .25s ease, backdrop-filter .25s ease, border-bottom-color .25s ease;
       border-bottom: 1px solid transparent;
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
+      -webkit-backdrop-filter: none; backdrop-filter: none;
+      display:flex; justify-content:space-between; align-items:center;
     }
     .nav.scrolled {
-      background: rgba(15,19,32,0.45);
+      background: color-mix(in srgb, var(--bg) 45%, transparent);
       -webkit-backdrop-filter: saturate(120%) blur(8px);
       backdrop-filter: saturate(120%) blur(8px);
-      border-bottom-color: rgba(110,168,254,0.25);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+      border-bottom-color: color-mix(in srgb, var(--accent) 25%, transparent);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.18);
     }
 
-    /* back to top button with fade+slide-in + gradient */
-    #backToTop {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background: linear-gradient(135deg, #6ea8fe, #b07cff);
-      color: #fff;
-      font-weight: 700;
-      text-shadow: 0 0 6px rgba(255,255,255,0.6);
-      border: none;
-      border-radius: 999px;
-      padding: 10px 16px;
-      font-size: 14px;
-      cursor: pointer;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.3s ease, transform 0.25s ease, box-shadow 0.2s ease;
-      z-index: 999;
-      box-shadow: 0 3px 8px rgba(0,0,0,.25);
-    }
-    #backToTop.show { opacity: 0.95; transform: translateY(0); }
-    #backToTop:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 14px rgba(0,0,0,.35);
-      opacity: 1;
-      text-shadow: 0 0 8px rgba(255,255,255,0.8);
-    }
-
-    /* ===== Reveal on scroll (sections & cards) ===== */
-    .reveal {
-      opacity: 0;
-      transform: translateY(14px);
-      transition: opacity .6s ease, transform .6s ease;
-      will-change: opacity, transform;
-    }
-    .reveal.show { opacity: 1; transform: translateY(0); }
-    .delay-1 { transition-delay: .06s; }
-    .delay-2 { transition-delay: .12s; }
-    .delay-3 { transition-delay: .18s; }
-
-    /* ===== Project cards hover polish ===== */
-    #projects .card {
-      overflow: hidden;
-      transition: box-shadow .25s ease, border-color .25s ease, transform .2s ease;
-      border: 1px solid #1f2742;
-    }
-    #projects .card img {
-      transition: transform .4s ease, filter .4s ease;
-      will-change: transform, filter;
-    }
-    #projects .card:hover img { transform: scale(1.04); filter: saturate(110%); }
-    #projects .card:hover {
-      box-shadow:
-        0 10px 26px rgba(110,168,254,0.20),
-        0 4px 12px rgba(176,124,255,0.12);
-      border-color: #33406b;
-      transform: translateY(-2px);
-    }
-
-    /* ===== Social buttons (Contact) ===== */
-    .socials {
-      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px;
-    }
-    .social {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: #1e2742; color: #cfe0ff;
-      border: 1px solid #2b375a; border-radius: 999px;
-      padding: 8px 12px; font-weight: 600; font-size: 14px;
+    /* theme toggle button */
+    .theme-toggle {
+      display:inline-flex; align-items:center; gap:8px;
+      background: #1e2742; color:#cfe0ff;
+      border:1px solid #2b375a; border-radius: 999px;
+      padding:6px 10px; font-weight:700; font-size:13px; cursor:pointer;
       transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
     }
-    .social svg { width: 16px; height: 16px; display: block; }
-    .social:hover {
+    html[data-theme="light"] .theme-toggle,
+    html[data-theme="auto"] .theme-toggle:where(:root[data-theme="auto"]) {
+      background:#e9eeff; color:#1a2350; border-color:#c8d2ff;
+    }
+    .theme-toggle:hover {
       transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(0,0,0,.18);
       border-color: #3a4a79;
-      background: linear-gradient(135deg, rgba(110,168,254,0.12), rgba(176,124,255,0.12));
-      box-shadow: 0 6px 16px rgba(110,168,254,0.15);
-      color: #eaf0ff;
+      background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, transparent), color-mix(in srgb, var(--accent2) 12%, transparent));
+    }
+    .theme-toggle svg { width:16px; height:16px; display:block }
+
+    /* back to top button */
+    #backToTop {
+      position: fixed; bottom: 24px; right: 24px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff; font-weight: 700; text-shadow: 0 0 6px rgba(255,255,255,0.6);
+      border: none; border-radius: 999px; padding: 10px 16px; font-size: 14px; cursor: pointer;
+      opacity: 0; transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.25s ease, box-shadow 0.2s ease;
+      z-index: 999; box-shadow: 0 3px 8px rgba(0,0,0,.25);
+    }
+    #backToTop.show { opacity: 0.95; transform: translateY(0); }
+    #backToTop:hover { transform: translateY(-2px); box-shadow: 0 5px 14px rgba(0,0,0,.35); opacity: 1; text-shadow: 0 0 8px rgba(255,255,255,0.8); }
+
+    /* reveal-on-scroll */
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; will-change: opacity, transform; }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .06s } .delay-2 { transition-delay: .12s } .delay-3 { transition-delay: .18s }
+
+    /* project card hover */
+    #projects .card { overflow: hidden; transition: box-shadow .25s ease, border-color .25s ease, transform .2s ease; border: 1px solid #1f2742; }
+    html[data-theme="light"] #projects .card { border-color: #dfe4f7; }
+    #projects .card img { transition: transform .4s ease, filter .4s ease; will-change: transform, filter; }
+    #projects .card:hover img { transform: scale(1.04); filter: saturate(110%); }
+    #projects .card:hover {
+      box-shadow: 0 10px 26px color-mix(in srgb, var(--accent) 20%, transparent), 0 4px 12px color-mix(in srgb, var(--accent2) 12%, transparent);
+      border-color: color-mix(in srgb, var(--accent) 30%, #33406b);
+      transform: translateY(-2px);
     }
 
+    /* socials */
+    .socials { display:flex; flex-wrap:wrap; gap:10px; margin-top:8px; }
+    .social { display:inline-flex; align-items:center; gap:8px; background:#1e2742; color:#cfe0ff; border:1px solid #2b375a; border-radius:999px; padding:8px 12px; font-weight:600; font-size:14px; transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease; }
+    html[data-theme="light"] .social { background:#eef2ff; color:#1a2350; border-color:#c8d2ff; }
+    .social:hover { transform:translateY(-1px); border-color:#3a4a79; background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, transparent), color-mix(in srgb, var(--accent2) 12%, transparent)); box-shadow: 0 6px 16px color-mix(in srgb, var(--accent) 15%, transparent); }
+    .social svg { width:16px; height:16px; display:block }
+
     @media (prefers-reduced-motion: reduce) {
-      #projects .card img, .reveal, .social { transition: none; }
+      #projects .card img, .reveal, .social, .theme-toggle { transition: none; }
       #projects .card:hover { transform: none; }
     }
   </style>
@@ -136,7 +140,7 @@
     <!-- Top Nav -->
     <div class="nav" id="navbar">
       <strong>Arjun Puri</strong>
-      <div>
+      <div style="display:flex; gap:10px; align-items:center;">
         <a href="#projects">Projects</a>
         &nbsp;•&nbsp;
         <a href="#experience">Experience</a>
@@ -146,6 +150,14 @@
         <a href="assets/Arjun_Puri_Resume.pdf" target="_blank" rel="noopener">Resume</a>
         &nbsp;•&nbsp;
         <a href="#contact">Contact</a>
+        <!-- Theme toggle -->
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle light or dark theme" title="Toggle theme">
+          <span id="themeIcon" aria-hidden="true">
+            <!-- default icon; replaced by JS -->
+            🌙
+          </span>
+          <span id="themeLabel" style="font-weight:700">Dark</span>
+        </button>
       </div>
     </div>
 
@@ -172,7 +184,7 @@
       </div>
     </section>
 
-    <!-- ================= Highlights ================= -->
+    <!-- Highlights -->
     <section id="highlights" class="section reveal">
       <h2>✨ Highlights</h2>
       <div class="grid">
@@ -191,12 +203,10 @@
       </div>
     </section>
 
-    <!-- ================= Experience ================= -->
+    <!-- Experience -->
     <section id="experience" class="section reveal">
       <h2>💼 Experience</h2>
       <div class="grid">
-
-        <!-- Sunrise -->
         <div class="card reveal"><div class="body">
           <h3>Data Analyst – Sunrise Credit Solutions</h3>
           <p><em>Toronto, ON | May 2023 – Feb 2025</em></p>
@@ -212,7 +222,6 @@
           </ul>
         </div></div>
 
-        <!-- LifeWorks -->
         <div class="card reveal delay-1"><div class="body">
           <h3>Administrative Assistant – LifeWorks</h3>
           <p><em>Toronto, ON | Apr 2021 – Apr 2023</em></p>
@@ -225,11 +234,10 @@
             <li>Upheld high office standards; streamlined routines to keep workflows on track.</li>
           </ul>
         </div></div>
-
       </div>
     </section>
 
-    <!-- ================= Education ================= -->
+    <!-- Education -->
     <section id="education" class="section reveal">
       <h2>🎓 Education</h2>
       <div class="grid">
@@ -241,7 +249,7 @@
       </div>
     </section>
 
-    <!-- ================= Certifications ================= -->
+    <!-- Certifications -->
     <section id="certifications" class="section reveal">
       <h2>🏅 Certifications</h2>
       <div class="grid">
@@ -255,7 +263,7 @@
       </div>
     </section>
 
-    <!-- ================= Skills ================= -->
+    <!-- Skills -->
     <section id="skills" class="section reveal">
       <h2>🛠️ Skills</h2>
       <div class="grid">
@@ -270,12 +278,11 @@
       </div>
     </section>
 
-    <!-- ================= Projects ================= -->
+    <!-- Projects -->
     <section id="projects" class="section reveal">
       <h2>📂 Featured Projects</h2>
       <div class="grid">
 
-        <!-- Healthcare -->
         <a class="card reveal" href="healthcare-clinic-efficiency/README.md">
           <img src="healthcare-clinic-efficiency/assets/healthcare_cover.png" alt="Healthcare clinic efficiency banner"/>
           <div class="body">
@@ -284,7 +291,6 @@
           </div>
         </a>
 
-        <!-- Mortgage -->
         <a class="card reveal delay-1" href="mortgage-client-portfolio-analysis/README.md">
           <img src="mortgage-client-portfolio-analysis/assets/mortgage_cover.png" alt="Mortgage portfolio banner"/>
           <div class="body">
@@ -293,7 +299,6 @@
           </div>
         </a>
 
-        <!-- Churn -->
         <a class="card reveal delay-2" href="customer-churn-analysis/README.md">
           <img src="customer-churn-analysis/assets/churn_cover.png" alt="Customer churn banner"/>
           <div class="body">
@@ -305,39 +310,23 @@
       </div>
     </section>
 
-    <!-- ================= Contact ================= -->
+    <!-- Contact -->
     <section id="contact" class="section reveal">
       <h2>✉️ Contact</h2>
       <div class="grid">
         <div class="card reveal"><div class="body">
           <p>Open to Data Analyst roles — based in Toronto, flexible on hybrid/remote.</p>
-
-          <!-- Social Buttons -->
           <div class="socials" aria-label="Social links">
-            <!-- Email -->
             <a class="social" href="mailto:arjunpuri321@yahoo.com" aria-label="Email Arjun">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M3 7.5l9 6 9-6" stroke="#cfe0ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <rect x="3" y="5" width="18" height="14" rx="2.4" stroke="#cfe0ff" stroke-width="1.6"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7.5l9 6 9-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="3" y="5" width="18" height="14" rx="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
               Email
             </a>
-
-            <!-- GitHub -->
             <a class="social" href="https://github.com/Arjjoon24" target="_blank" rel="noopener" aria-label="Arjun's GitHub">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.47.08.64-.2.64-.45v-1.74c-2.62.58-3.17-1.12-3.17-1.12-.43-1.1-1.06-1.4-1.06-1.4-.86-.6.07-.59.07-.59  .95.07 1.45.98 1.45.98 .85 1.46 2.24 1.04 2.79.8 .09-.63.33-1.04.6-1.28-2.09-.24-4.3-1.05-4.3-4.68 0-1.03.37-1.88.98-2.54-.1-.24-.43-1.21.09-2.52 0 0 .82-.26 2.68.97a9.3 9.3 0 0 1 4.88 0c1.86-1.23 2.68-.97 2.68-.97 .52 1.31.19 2.28.09 2.52 .61.66.98 1.51.98 2.54 0 3.64-2.21 4.44-4.31 4.68 .34.3.64.87.64 1.76v2.61c0 .25.17.54.64.45A9.5 9.5 0 0 0 12 2.5Z" stroke="#cfe0ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.47.08.64-.2.64-.45v-1.74c-2.62.58-3.17-1.12-3.17-1.12-.43-1.1-1.06-1.4-1.06-1.4-.86-.6.07-.59.07-.59.95.07 1.45.98 1.45.98.85 1.46 2.24 1.04 2.79.8.09-.63.33-1.04.6-1.28-2.09-.24-4.3-1.05-4.3-4.68 0-1.03.37-1.88.98-2.54-.1-.24-.43-1.21.09-2.52 0 0 .82-.26 2.68.97a9.3 9.3 0 0 1 4.88 0c1.86-1.23 2.68-.97 2.68-.97.52 1.31.19 2.28.09 2.52.61.66.98 1.51.98 2.54 0 3.64-2.21 4.44-4.31 4.68.34.3.64.87.64 1.76v2.61c0 .25.17.54.64.45A9.5 9.5 0 0 0 12 2.5Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
               GitHub
             </a>
-
-            <!-- Resume -->
             <a class="social" href="assets/Arjun_Puri_Resume.pdf" target="_blank" rel="noopener" aria-label="Open resume PDF">
-              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M6.5 3.5h7l4 4v13a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 5.5 20V5a1.5 1.5 0 0 1 1-1.5Z" stroke="#cfe0ff" stroke-width="1.6" stroke-linejoin="round"/>
-                <path d="M13.5 3.5V8h4" stroke="#cfe0ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M8.5 12h7M8.5 15h7M8.5 18h4" stroke="#cfe0ff" stroke-width="1.6" stroke-linecap="round"/>
-              </svg>
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.5 3.5h7l4 4v13a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 5.5 20V5a1.5 1.5 0 0 1 1-1.5Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M13.5 3.5V8h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.5 12h7M8.5 15h7M8.5 18h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
               Resume
             </a>
           </div>
@@ -361,6 +350,45 @@
     const navbar = document.getElementById("navbar");
     const progress = document.getElementById("progress");
 
+    /* ===== Theme Toggle ===== */
+    const toggleBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const themeLabel = document.getElementById('themeLabel');
+
+    function applyTheme(mode) {
+      // mode: "light" | "dark" | "auto"
+      document.documentElement.setAttribute('data-theme', mode);
+      if (mode === 'light') { themeIcon.textContent = '☀️'; themeLabel.textContent = 'Light'; }
+      else if (mode === 'dark') { themeIcon.textContent = '🌙'; themeLabel.textContent = 'Dark'; }
+      else { // auto -> reflect system
+        const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+        themeIcon.textContent = prefersLight ? '☀️' : '🌙';
+        themeLabel.textContent = prefersLight ? 'Light' : 'Dark';
+      }
+    }
+    function initTheme() {
+      const saved = localStorage.getItem('theme-mode'); // "light" | "dark" | "auto"
+      applyTheme(saved || 'auto');
+    }
+    function nextMode(cur) {
+      // cycle: auto -> light -> dark -> auto
+      if (cur === 'auto') return 'light';
+      if (cur === 'light') return 'dark';
+      return 'auto';
+    }
+    toggleBtn.addEventListener('click', () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'auto';
+      const next = nextMode(current);
+      localStorage.setItem('theme-mode', next);
+      applyTheme(next);
+    });
+    // update "auto" label if OS theme changes
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+      if ((localStorage.getItem('theme-mode') || 'auto') === 'auto') applyTheme('auto');
+    });
+    initTheme();
+
+    /* ===== Progress Bar ===== */
     function updateProgress() {
       const scrollTop = window.scrollY || document.documentElement.scrollTop;
       const docH = Math.max(
@@ -374,7 +402,7 @@
       progress.style.width = pct + "%";
     }
 
-    // Scroll effects
+    /* ===== Scroll effects ===== */
     window.addEventListener("scroll", () => {
       updateProgress();
       if (window.scrollY > 400) backToTop.classList.add("show");
@@ -386,22 +414,18 @@
     window.addEventListener("load", updateProgress);
     window.addEventListener("resize", updateProgress);
 
-    // back-to-top click (with fallback)
+    /* Back-to-top click */
     backToTop.addEventListener("click", () => {
       try { window.scrollTo({ top: 0, behavior: "smooth" }); }
       catch { document.documentElement.scrollTop = 0; document.body.scrollTop = 0; }
     });
 
-    // ===== Reveal-on-scroll using IntersectionObserver =====
+    /* Reveal-on-scroll */
     const io = new IntersectionObserver((entries) => {
       entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('show');
-          io.unobserve(e.target);
-        }
+        if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); }
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
-
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
 </body>
