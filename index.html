@@ -9,31 +9,48 @@
   <style>
     html { scroll-behavior: smooth; }
 
-    /* back to top button */
+    /* navbar */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      background: #0f1320;
+      padding: 10px 0 12px;
+      transition: box-shadow 0.3s ease;
+    }
+    .nav.scrolled {
+      box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
+
+    /* back to top button with fade+slide-in */
     #backToTop {
       position: fixed;
       bottom: 24px;
       right: 24px;
       background: linear-gradient(135deg, #6ea8fe, #b07cff);
       color: #fff;
+      font-weight: 700;
+      text-shadow: 0 0 6px rgba(255,255,255,0.6);
       border: none;
       border-radius: 999px;
       padding: 10px 16px;
       font-size: 14px;
-      font-weight: 600;
       cursor: pointer;
       opacity: 0;
-      transition: opacity 0.3s ease, transform 0.2s ease;
+      transform: translateY(6px);
+      transition: opacity 0.3s ease, transform 0.25s ease, box-shadow 0.2s ease;
       z-index: 1000;
       box-shadow: 0 3px 8px rgba(0,0,0,.25);
+    }
+    #backToTop.show {
+      opacity: 0.95;
+      transform: translateY(0);
     }
     #backToTop:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 14px rgba(0,0,0,.35);
       opacity: 1;
-    }
-    #backToTop.show {
-      opacity: 0.95;
+      text-shadow: 0 0 8px rgba(255,255,255,0.8);
     }
   </style>
 </head>
@@ -41,7 +58,7 @@
   <div class="container">
 
     <!-- Top Nav -->
-    <div class="nav">
+    <div class="nav" id="navbar">
       <strong>Arjun Puri</strong>
       <div>
         <a href="#projects">Projects</a>
@@ -250,16 +267,23 @@
   </div>
 
   <!-- Back to Top Button -->
-  <button id="backToTop" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑ Top</button>
+  <button id="backToTop" aria-label="Back to top">↑ Top</button>
 
   <script>
-    // Show button only when scrolling down
     const backToTop = document.getElementById("backToTop");
+    const navbar = document.getElementById("navbar");
+
     window.addEventListener("scroll", () => {
       if (window.scrollY > 400) {
         backToTop.classList.add("show");
       } else {
         backToTop.classList.remove("show");
+      }
+
+      if (window.scrollY > 20) {
+        navbar.classList.add("scrolled");
+      } else {
+        navbar.classList.remove("scrolled");
       }
     });
   </script>
