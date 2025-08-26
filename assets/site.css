@@ -56,15 +56,36 @@ a:hover{opacity:.85}
   box-shadow: 0 2px 8px rgba(0,0,0,.25);
   transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease;
 }
-
 #highlights .card:hover {
   transform: translateY(-3px);
   border-color: #3b4a79;
   box-shadow: 0 4px 14px rgba(0,0,0,.35);
 }
-
 #highlights h3 {
-  color: #6ea8fe; /* matches your accent blue */
+  color: #6ea8fe; /* accent blue */
   font-size: 18px;
   margin-bottom: 6px;
+}
+
+/* === Contact section polish === */
+#contact {
+  border-top: 2px solid transparent;
+  border-image: linear-gradient(to right, #6ea8fe, #b07cff);
+  border-image-slice: 1;
+  padding-top: 24px;
+  margin-top: 28px;
+}
+#contact .card {
+  background: linear-gradient(180deg, #1d2640, #151c2e);
+  border: 1px solid #32416a;
+  box-shadow: 0 2px 6px rgba(0,0,0,.2);
+  transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+#contact .card:hover {
+  transform: translateY(-2px);
+  border-color: #4c64a2;
+  box-shadow: 0 4px 12px rgba(0,0,0,.3);
+}
+#contact p {
+  color: #cfd8ec; /* lighter inviting tone */
 }
