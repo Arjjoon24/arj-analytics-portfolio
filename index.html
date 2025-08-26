@@ -77,17 +77,14 @@
       transition: opacity .6s ease, transform .6s ease;
       will-change: opacity, transform;
     }
-    .reveal.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .reveal.show { opacity: 1; transform: translateY(0); }
     .delay-1 { transition-delay: .06s; }
     .delay-2 { transition-delay: .12s; }
     .delay-3 { transition-delay: .18s; }
 
     /* ===== Project cards hover polish ===== */
     #projects .card {
-      overflow: hidden; /* contain image zoom */
+      overflow: hidden;
       transition: box-shadow .25s ease, border-color .25s ease, transform .2s ease;
       border: 1px solid #1f2742;
     }
@@ -95,10 +92,7 @@
       transition: transform .4s ease, filter .4s ease;
       will-change: transform, filter;
     }
-    #projects .card:hover img {
-      transform: scale(1.04);
-      filter: saturate(110%);
-    }
+    #projects .card:hover img { transform: scale(1.04); filter: saturate(110%); }
     #projects .card:hover {
       box-shadow:
         0 10px 26px rgba(110,168,254,0.20),
@@ -107,12 +101,28 @@
       transform: translateY(-2px);
     }
 
-    /* Respect users who prefer reduced motion */
+    /* ===== Social buttons (Contact) ===== */
+    .socials {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px;
+    }
+    .social {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #1e2742; color: #cfe0ff;
+      border: 1px solid #2b375a; border-radius: 999px;
+      padding: 8px 12px; font-weight: 600; font-size: 14px;
+      transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .social svg { width: 16px; height: 16px; display: block; }
+    .social:hover {
+      transform: translateY(-1px);
+      border-color: #3a4a79;
+      background: linear-gradient(135deg, rgba(110,168,254,0.12), rgba(176,124,255,0.12));
+      box-shadow: 0 6px 16px rgba(110,168,254,0.15);
+      color: #eaf0ff;
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      #projects .card img,
-      .reveal {
-        transition: none;
-      }
+      #projects .card img, .reveal, .social { transition: none; }
       #projects .card:hover { transform: none; }
     }
   </style>
@@ -301,13 +311,36 @@
       <div class="grid">
         <div class="card reveal"><div class="body">
           <p>Open to Data Analyst roles — based in Toronto, flexible on hybrid/remote.</p>
-          <p>
-            <a class="cta" href="mailto:arjunpuri321@yahoo.com">📧 Email</a>
-            &nbsp;•&nbsp;
-            <a class="cta" href="https://github.com/Arjjoon24">💻 GitHub</a>
-            &nbsp;•&nbsp;
-            <a class="cta" href="assets/Arjun_Puri_Resume.pdf" target="_blank">📄 Resume</a>
-          </p>
+
+          <!-- Social Buttons -->
+          <div class="socials" aria-label="Social links">
+            <!-- Email -->
+            <a class="social" href="mailto:arjunpuri321@yahoo.com" aria-label="Email Arjun">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M3 7.5l9 6 9-6" stroke="#cfe0ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="3" y="5" width="18" height="14" rx="2.4" stroke="#cfe0ff" stroke-width="1.6"/>
+              </svg>
+              Email
+            </a>
+
+            <!-- GitHub -->
+            <a class="social" href="https://github.com/Arjjoon24" target="_blank" rel="noopener" aria-label="Arjun's GitHub">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.47.08.64-.2.64-.45v-1.74c-2.62.58-3.17-1.12-3.17-1.12-.43-1.1-1.06-1.4-1.06-1.4-.86-.6.07-.59.07-.59  .95.07 1.45.98 1.45.98 .85 1.46 2.24 1.04 2.79.8 .09-.63.33-1.04.6-1.28-2.09-.24-4.3-1.05-4.3-4.68 0-1.03.37-1.88.98-2.54-.1-.24-.43-1.21.09-2.52 0 0 .82-.26 2.68.97a9.3 9.3 0 0 1 4.88 0c1.86-1.23 2.68-.97 2.68-.97 .52 1.31.19 2.28.09 2.52 .61.66.98 1.51.98 2.54 0 3.64-2.21 4.44-4.31 4.68 .34.3.64.87.64 1.76v2.61c0 .25.17.54.64.45A9.5 9.5 0 0 0 12 2.5Z" stroke="#cfe0ff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              GitHub
+            </a>
+
+            <!-- Resume -->
+            <a class="social" href="assets/Arjun_Puri_Resume.pdf" target="_blank" rel="noopener" aria-label="Open resume PDF">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6.5 3.5h7l4 4v13a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 5.5 20V5a1.5 1.5 0 0 1 1-1.5Z" stroke="#cfe0ff" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M13.5 3.5V8h4" stroke="#cfe0ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8.5 12h7M8.5 15h7M8.5 18h4" stroke="#cfe0ff" stroke-width="1.6" stroke-linecap="round"/>
+              </svg>
+              Resume
+            </a>
+          </div>
         </div></div>
       </div>
     </section>
@@ -364,7 +397,7 @@
       entries.forEach(e => {
         if (e.isIntersecting) {
           e.target.classList.add('show');
-          io.unobserve(e.target); // reveal once
+          io.unobserve(e.target);
         }
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
