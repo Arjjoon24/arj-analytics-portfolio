@@ -9,18 +9,40 @@
   <style>
     html { scroll-behavior: smooth; }
 
-    /* navbar */
+    /* ===== Scroll Progress Bar (top of page) ===== */
+    #progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, #6ea8fe, #b07cff);
+      box-shadow: 0 0 8px rgba(110,168,254,.6);
+      z-index: 1001;
+      transition: width 0.08s linear;
+    }
+
+    /* navbar: fully transparent at top; glass when scrolled */
     .nav {
       position: sticky;
       top: 0;
-      z-index: 999;
-      background: #0f1320;
+      z-index: 1000;
+      background: transparent;
       padding: 10px 0 12px;
-      transition: box-shadow 0.3s ease;
+      transition: box-shadow 0.3s ease, background 0.25s ease, backdrop-filter 0.25s ease, border-bottom-color 0.25s ease;
+      border-bottom: 1px solid transparent;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
     }
-    .nav.scrolled { box-shadow: 0 2px 8px rgba(0,0,0,0.35); }
+    .nav.scrolled {
+      background: rgba(15,19,32,0.45);
+      -webkit-backdrop-filter: saturate(120%) blur(8px);
+      backdrop-filter: saturate(120%) blur(8px);
+      border-bottom-color: rgba(110,168,254,0.25);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.35);
+    }
 
-    /* back to top button with fade+slide-in */
+    /* back to top button with fade+slide-in + gradient */
     #backToTop {
       position: fixed;
       bottom: 24px;
@@ -37,14 +59,10 @@
       opacity: 0;
       transform: translateY(6px);
       transition: opacity 0.3s ease, transform 0.25s ease, box-shadow 0.2s ease;
-      z-index: 1000;
+      z-index: 999;
       box-shadow: 0 3px 8px rgba(0,0,0,.25);
-      pointer-events: auto;
     }
-    #backToTop.show {
-      opacity: 0.95;
-      transform: translateY(0);
-    }
+    #backToTop.show { opacity: 0.95; transform: translateY(0); }
     #backToTop:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 14px rgba(0,0,0,.35);
@@ -54,6 +72,9 @@
   </style>
 </head>
 <body id="top">
+  <!-- Slim progress bar -->
+  <div id="progress" aria-hidden="true"></div>
+
   <div class="container">
 
     <!-- Top Nav -->
@@ -271,28 +292,44 @@
   <script>
     const backToTop = document.getElementById("backToTop");
     const navbar = document.getElementById("navbar");
+    const progress = document.getElementById("progress");
 
-    // Show/hide effects on scroll
+    function updateProgress() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const docH = Math.max(
+        document.body.scrollHeight, document.documentElement.scrollHeight,
+        document.body.offsetHeight, document.documentElement.offsetHeight,
+        document.body.clientHeight, document.documentElement.clientHeight
+      );
+      const winH = window.innerHeight;
+      const max = docH - winH;
+      const pct = max > 0 ? (scrollTop / max) * 100 : 0;
+      progress.style.width = pct + "%";
+    }
+
+    // Scroll effects
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 400) {
-        backToTop.classList.add("show");
-      } else {
-        backToTop.classList.remove("show");
-      }
+      // progress bar
+      updateProgress();
 
-      if (window.scrollY > 20) {
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-      }
-    });
+      // back-to-top visibility
+      if (window.scrollY > 400) backToTop.classList.add("show");
+      else backToTop.classList.remove("show");
 
-    // Reliable click listener (works even if inline handlers are ignored)
+      // nav glass state
+      if (window.scrollY > 20) navbar.classList.add("scrolled");
+      else navbar.classList.remove("scrolled");
+    }, { passive: true });
+
+    // Update on load & resize
+    window.addEventListener("load", updateProgress);
+    window.addEventListener("resize", updateProgress);
+
+    // back-to-top click (with fallback)
     backToTop.addEventListener("click", () => {
       try {
         window.scrollTo({ top: 0, behavior: "smooth" });
-      } catch (e) {
-        // Fallback for older browsers
+      } catch {
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
       }
