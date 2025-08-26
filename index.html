@@ -4,54 +4,68 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Arjun Puri | Analytics Portfolio</title>
+
+  <!-- ===== Base styles ===== -->
   <link rel="stylesheet" href="assets/site.css"/>
+
+  <!-- ===== Canonical (your public site URL) ===== -->
+  <link rel="canonical" href="https://arjjoon24.github.io/arj-analytics-portfolio/"/>
+
+  <!-- ===== Open Graph / Twitter (share previews) ===== -->
   <meta name="description" content="Data Analytics portfolio by Arjun Puri — SQL, Python, Tableau, Excel. Projects: Healthcare efficiency, Mortgage portfolio analysis, Customer churn.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Arjun Puri | Data Analytics Portfolio">
+  <meta property="og:description" content="SQL, Python, Tableau & Excel — turning messy data into clear, decision-ready insights.">
+  <meta property="og:url" content="https://arjjoon24.github.io/arj-analytics-portfolio/">
+  <!-- Use absolute URL for images so social scrapers can fetch them -->
+  <meta property="og:image" content="https://arjjoon24.github.io/arj-analytics-portfolio/assets/cover.png">
+  <meta property="og:image:alt" content="Banner for Arjun Puri's Data Analytics Portfolio">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Arjun Puri | Data Analytics Portfolio">
+  <meta name="twitter:description" content="SQL, Python, Tableau & Excel — turning messy data into clear, decision-ready insights.">
+  <meta name="twitter:image" content="https://arjjoon24.github.io/arj-analytics-portfolio/assets/cover.png">
+
+  <!-- ===== Favicons (add these files in /assets) ===== -->
+  <!-- SVG (crisp in modern browsers). Fall back to PNG if you prefer -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <!-- Fallback PNG -->
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
+  <!-- Apple touch icon for iOS home screen -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+
+  <!-- ===== Theme color (changes per theme) ===== -->
+  <meta name="theme-color" content="#0f1320" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f6f8ff" media="(prefers-color-scheme: light)">
+
   <style>
     html { scroll-behavior: smooth; }
 
-    /* =========================================================
-       THEME VARIABLES
-       Your site.css defines the dark palette in :root already.
-       We override variables for LIGHT MODE here.
-       ========================================================= */
+    /* ========== THEME VARIABLES (light/dark/auto) ========== */
     @media (prefers-color-scheme: light) {
       html[data-theme="auto"] {
-        /* light palette */
-        --bg:#f6f8ff;
-        --card:#ffffff;
-        --text:#0e1220;
-        --muted:#55607a;
-        --accent:#3b7cff;
-        --accent2:#7a4bff;
+        --bg:#f6f8ff; --card:#ffffff; --text:#0e1220; --muted:#55607a;
+        --accent:#3b7cff; --accent2:#7a4bff;
       }
     }
     html[data-theme="light"] {
-      --bg:#f6f8ff;
-      --card:#ffffff;
-      --text:#0e1220;
-      --muted:#55607a;
-      --accent:#3b7cff;
-      --accent2:#7a4bff;
+      --bg:#f6f8ff; --card:#ffffff; --text:#0e1220; --muted:#55607a;
+      --accent:#3b7cff; --accent2:#7a4bff;
     }
     html[data-theme="dark"] {
-      /* match your existing dark tokens (from site.css) */
-      --bg:#0f1320;
-      --card:#141a2a;
-      --text:#eaf0ff;
-      --muted:#a9b3c9;
-      --accent:#6ea8fe;
-      --accent2:#b07cff;
+      --bg:#0f1320; --card:#141a2a; --text:#eaf0ff; --muted:#a9b3c9;
+      --accent:#6ea8fe; --accent2:#b07cff;
     }
 
-    /* ===== Scroll Progress Bar ===== */
+    /* ===== Progress Bar ===== */
     #progress {
       position: fixed; top: 0; left: 0; height: 3px; width: 0%;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 8px color-mix(in srgb, var(--accent) 60%, transparent);
+      box-shadow: 0 0 8px rgba(110,168,254,.6);
       z-index: 1001; transition: width 0.08s linear;
     }
 
-    /* navbar: fully transparent at top; glass when scrolled */
+    /* ===== Navbar (transparent at top; glass when scrolled) ===== */
     .nav {
       position: sticky; top: 0; z-index: 1000;
       background: transparent;
@@ -69,7 +83,7 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.18);
     }
 
-    /* theme toggle button */
+    /* theme toggle */
     .theme-toggle {
       display:inline-flex; align-items:center; gap:8px;
       background: #1e2742; color:#cfe0ff;
@@ -77,10 +91,7 @@
       padding:6px 10px; font-weight:700; font-size:13px; cursor:pointer;
       transition: transform .15s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
     }
-    html[data-theme="light"] .theme-toggle,
-    html[data-theme="auto"] .theme-toggle:where(:root[data-theme="auto"]) {
-      background:#e9eeff; color:#1a2350; border-color:#c8d2ff;
-    }
+    html[data-theme="light"] .theme-toggle { background:#e9eeff; color:#1a2350; border-color:#c8d2ff; }
     .theme-toggle:hover {
       transform: translateY(-1px);
       box-shadow: 0 6px 16px rgba(0,0,0,.18);
@@ -152,10 +163,7 @@
         <a href="#contact">Contact</a>
         <!-- Theme toggle -->
         <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle light or dark theme" title="Toggle theme">
-          <span id="themeIcon" aria-hidden="true">
-            <!-- default icon; replaced by JS -->
-            🌙
-          </span>
+          <span id="themeIcon" aria-hidden="true">🌙</span>
           <span id="themeLabel" style="font-weight:700">Dark</span>
         </button>
       </div>
@@ -356,33 +364,26 @@
     const themeLabel = document.getElementById('themeLabel');
 
     function applyTheme(mode) {
-      // mode: "light" | "dark" | "auto"
       document.documentElement.setAttribute('data-theme', mode);
       if (mode === 'light') { themeIcon.textContent = '☀️'; themeLabel.textContent = 'Light'; }
       else if (mode === 'dark') { themeIcon.textContent = '🌙'; themeLabel.textContent = 'Dark'; }
-      else { // auto -> reflect system
+      else {
         const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
         themeIcon.textContent = prefersLight ? '☀️' : '🌙';
         themeLabel.textContent = prefersLight ? 'Light' : 'Dark';
       }
     }
     function initTheme() {
-      const saved = localStorage.getItem('theme-mode'); // "light" | "dark" | "auto"
+      const saved = localStorage.getItem('theme-mode');
       applyTheme(saved || 'auto');
     }
-    function nextMode(cur) {
-      // cycle: auto -> light -> dark -> auto
-      if (cur === 'auto') return 'light';
-      if (cur === 'light') return 'dark';
-      return 'auto';
-    }
+    function nextMode(cur) { return cur === 'auto' ? 'light' : cur === 'light' ? 'dark' : 'auto'; }
     toggleBtn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') || 'auto';
-      const next = nextMode(current);
+      const cur = document.documentElement.getAttribute('data-theme') || 'auto';
+      const next = nextMode(cur);
       localStorage.setItem('theme-mode', next);
       applyTheme(next);
     });
-    // update "auto" label if OS theme changes
     window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
       if ((localStorage.getItem('theme-mode') || 'auto') === 'auto') applyTheme('auto');
     });
