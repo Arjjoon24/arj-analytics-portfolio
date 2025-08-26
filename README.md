@@ -8,21 +8,21 @@ Welcome 👋 This repository showcases my analytics projects where I use SQL, Py
 
 ## 🚀 Featured Projects  
 
-### 1. [Healthcare Clinic Efficiency](./healthcare-clinic-efficiency)  
+### 1. [Healthcare Clinic Efficiency](./healthcare-clinic-efficiency/README.md)  
 - Analyzed appointment data to identify wait time patterns and no-show trends  
 - Built SQL queries for performance insights and created Tableau-style dashboards  
 - Recommended scheduling improvements based on demographic and provider data  
 
 ---
 
-### 2. [Mortgage Client Portfolio Analysis](./mortgage-client-portfolio-analysis)  
+### 2. [Mortgage Client Portfolio Analysis](./mortgage-client-portfolio-analysis/README.md)  
 - Analyzed ~100 mortgage client accounts to uncover payment behavior and risk factors  
 - Built SQL queries and dashboards highlighting delinquency trends and balances  
 - Automated recurring reports to support client portfolio management  
 
 ---
 
-### 3. [Customer Churn Analysis](./customer-churn-analysis)  
+### 3. [Customer Churn Analysis](./customer-churn-analysis/README.md)  
 - Modeled customer attrition drivers using contract type, tenure, and usage patterns  
 - Created SQL queries to calculate churn % across cohorts and segments  
 - Highlighted at-risk groups and proposed targeted retention strategies  
