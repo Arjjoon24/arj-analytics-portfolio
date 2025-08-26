@@ -47,4 +47,5 @@ I’m a Toronto-based Data Analyst with a background in Health Informatics and s
 ---
 
 📂 **Portfolio Repo:** [github.com/Arjjoon24/arj-analytics-portfolio](https://github.com/Arjjoon24/arj-analytics-portfolio)  
+🌐 **Live Portfolio:** [arjjoon24.github.io/arj-analytics-portfolio](https://arjjoon24.github.io/arj-analytics-portfolio/)  
 📧 **Contact:** arjunpuri321@yahoo.com  
