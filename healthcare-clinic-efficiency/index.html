@@ -1,60 +1,137 @@
 <!doctype html>
-<html lang="en" data-theme="auto">
+<html lang="en">
 <head>
   <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Healthcare Clinic Efficiency | Arjun Puri</title>
-  <link rel="stylesheet" href="../assets/site.css"/>
-  <meta name="description" content="Healthcare clinic efficiency – SQL + Tableau analysis by Arjun Puri.">
+
+  <!-- Basic social preview -->
+  <meta name="description" content="Wait times, no-show trends, and provider utilization. SQL + Tableau-style visuals by Arjun Puri.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Healthcare Clinic Efficiency | Arjun Puri">
+  <meta property="og:description" content="Wait times, no-show trends, and provider utilization. SQL + Tableau-style visuals by Arjun Puri.">
+  <meta property="og:image" content="assets/healthcare_cover.png">
+
+  <style>
+    :root{
+      --bg:#0f1320; --card:#141a2a; --text:#eaf0ff; --muted:#a9b3c9;
+      --accent:#6ea8fe; --accent2:#b07cff; --border:#233055;
+      --link:#9ec3ff;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f8ff; --card:#ffffff; --text:#0e1220; --muted:#55607a;
+        --accent:#3b7cff; --accent2:#7a4bff; --border:#dfe4f7;
+        --link:#1e4fd6;
+      }
+    }
+    * { box-sizing: border-box; }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: 980px; margin: 32px auto 64px; padding: 0 16px; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; }
+    .back { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, transparent), color-mix(in srgb, var(--accent2) 12%, transparent)); color:var(--text); font-weight:600; text-decoration:none; }
+    .back:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.25); text-decoration:none; }
+
+    .hero { display:grid; grid-template-columns: 1fr; gap:16px; align-items:start; }
+    .hero img { width:100%; height:auto; border-radius:16px; border:1px solid var(--border); box-shadow: 0 10px 24px rgba(0,0,0,.22); }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow: 0 6px 16px rgba(0,0,0,.18); }
+    h1 { margin:10px 0 8px; font-size: clamp(26px, 4vw, 36px); }
+    h2 { margin:28px 0 12px; font-size: clamp(20px, 3vw, 24px); }
+    p { line-height:1.6; color:var(--muted); }
+    ul { margin:10px 0 0 18px; color:var(--muted); }
+    li { margin:6px 0; }
+
+    .grid { display:grid; grid-template-columns: 1fr; gap:16px; }
+    .charts { display:grid; grid-template-columns: 1fr; gap:16px; }
+    .chart img { width:100%; height:auto; border-radius:12px; border:1px solid var(--border); display:block; }
+
+    .meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    .pill { border:1px solid var(--border); padding:6px 10px; border-radius:999px; font-weight:600; background:#1b2440; }
+    @media (prefers-color-scheme: light){ .pill { background:#eef2ff; color:#1a2350; } }
+
+    .links { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; border:1px solid var(--border); background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, transparent), color-mix(in srgb, var(--accent2) 10%, transparent)); color:var(--text); font-weight:700; text-decoration:none; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,.25); text-decoration:none; }
+
+    footer { margin-top:36px; color:var(--muted); font-size:14px; text-align:center; }
+    code,kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace; }
+  </style>
 </head>
-<body id="top">
-  <div class="container">
-    <div class="nav" id="navbar">
-      <a href="../" style="font-weight:700">← Back to Portfolio</a>
-      <div style="display:flex; gap:10px; align-items:center;">
-        <a href="../assets/Arjun_Puri_Resume.pdf" target="_blank" rel="noopener">Resume</a>
-      </div>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="../index.html" aria-label="Back to portfolio">← Back to Portfolio</a>
+      <span style="opacity:.7">Arjun Puri</span>
     </div>
 
-    <section class="hero reveal">
-      <div class="hero-inner">
-        <img src="assets/healthcare_cover.png" alt="Healthcare banner" class="reveal delay-1"/>
-        <div class="reveal delay-2">
-          <h1>Healthcare Clinic Efficiency</h1>
-          <p>SQL + Tableau analysis of wait times, no-shows, and provider utilization for a regional clinic.</p>
-          <div class="badges">
-            <span class="badge">SQL</span>
-            <span class="badge">Tableau</span>
-            <span class="badge">Excel</span>
-            <span class="badge">Healthcare Analytics</span>
-          </div>
-          <p class="cta">
-            <a href="README.md">View project README →</a>
-          </p>
+    <!-- HERO -->
+    <section class="hero">
+      <img src="assets/healthcare_cover.png" alt="Healthcare clinic efficiency cover image"/>
+      <div class="card">
+        <h1>Healthcare Clinic Efficiency</h1>
+        <p>Evaluate appointment efficiency and patient throughput. Analyze bottlenecks in scheduling and recommend improvements using SQL and data visualization.</p>
+        <div class="meta">
+          <span class="pill">SQL</span>
+          <span class="pill">Excel</span>
+          <span class="pill">Tableau-style Charts</span>
+          <span class="pill">Healthcare Analytics</span>
+        </div>
+        <div class="links">
+          <a class="btn" href="./README.md">View Project README</a>
+          <a class="btn" href="./SQL_Queries.sql">SQL_Queries.sql</a>
+          <a class="btn" href="./Healthcare_CaseStudy_MockData.xlsx">Mock Data (.xlsx)</a>
+          <a class="btn" href="https://github.com/Arjjoon24/arj-analytics-portfolio/tree/main/healthcare-clinic-efficiency" target="_blank" rel="noopener">View Folder on GitHub ↗</a>
         </div>
       </div>
     </section>
 
-    <section class="section reveal">
-      <h2>Key Questions</h2>
-      <div class="grid">
-        <div class="card"><div class="body"><p>Average wait time by provider?</p></div></div>
-        <div class="card"><div class="body"><p>No-shows vs. completed visits each month?</p></div></div>
-        <div class="card"><div class="body"><p>Overbooking relative to appointment duration?</p></div></div>
-        <div class="card"><div class="body"><p>No-show patterns by demographics?</p></div></div>
+    <!-- QUICK INSIGHTS -->
+    <section class="grid" style="margin-top:16px;">
+      <div class="card">
+        <h2>Key Questions</h2>
+        <ul>
+          <li>What is the average wait time by provider?</li>
+          <li>How many no-shows vs. completed visits each month?</li>
+          <li>Which providers are overbooked relative to appointment duration?</li>
+          <li>Any no-show patterns by age/demographics?</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Highlights</h2>
+        <ul>
+          <li>Average wait times exceeded 25 minutes for key providers.</li>
+          <li>No-shows peaked in late spring, especially ages 18–34.</li>
+          <li>Overbooking correlated with longer waits and missed visits.</li>
+          <li>Recommendations: buffer scheduling, reminders, targeted outreach.</li>
+        </ul>
       </div>
     </section>
 
-    <section class="section reveal" id="charts">
-      <h2>Charts</h2>
-      <div class="grid">
-        <div class="card reveal"><img src="assets/Chart_Avg_Wait_Time.png" alt="Avg Wait Time"><div class="body"><h3>Average Wait Time by Provider</h3></div></div>
-        <div class="card reveal delay-1"><img src="assets/Chart_Monthly_Visits.png" alt="Monthly Visits"><div class="body"><h3>Monthly Completed vs No-Show</h3></div></div>
-        <div class="card reveal delay-2"><img src="assets/Chart_NoShow_Age.png" alt="No-show by Age"><div class="body"><h3>No-Show Rates by Age</h3></div></div>
+    <!-- CHARTS -->
+    <section class="card" style="margin-top:16px;">
+      <h2>Visuals</h2>
+      <div class="charts">
+        <figure class="chart">
+          <img src="assets/Chart_Avg_Wait_Time.png" alt="Bar chart of average wait time by provider"/>
+          <figcaption>Average Wait Time by Provider</figcaption>
+        </figure>
+        <figure class="chart">
+          <img src="assets/Chart_Monthly_Visits.png" alt="Line chart of monthly completed vs no-show visits"/>
+          <figcaption>Monthly Visits (Completed vs No-Show)</figcaption>
+        </figure>
+        <figure class="chart">
+          <img src="assets/Chart_NoShow_Age.png" alt="Chart of no-show rates by age group"/>
+          <figcaption>No-Show Rate by Age Group</figcaption>
+        </figure>
       </div>
     </section>
 
-    <div class="footer">© <script>document.write(new Date().getFullYear())</script> Arjun Puri</div>
+    <footer>
+      <p>© <script>document.write(new Date().getFullYear())</script> Arjun Puri · <a href="../index.html">Back to Portfolio</a></p>
+    </footer>
   </div>
 </body>
 </html>
