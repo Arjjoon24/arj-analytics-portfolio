@@ -289,8 +289,8 @@
       <h2>📂 Featured Projects</h2>
       <div class="grid">
 
-        <!-- UPDATED: link to project HTML pages -->
-        <a class="card reveal" href="healthcare-clinic-efficiency/index.html">
+        <!-- UPDATED LINKS TO FOLDER PATHS -->
+        <a class="card reveal" href="healthcare-clinic-efficiency/">
           <img src="healthcare-clinic-efficiency/assets/healthcare_cover.png" alt="Healthcare clinic efficiency banner"/>
           <div class="body">
             <h3>Healthcare Clinic Efficiency</h3>
@@ -298,7 +298,7 @@
           </div>
         </a>
 
-        <a class="card reveal delay-1" href="mortgage-client-portfolio-analysis/index.html">
+        <a class="card reveal delay-1" href="mortgage-client-portfolio-analysis/">
           <img src="mortgage-client-portfolio-analysis/assets/mortgage_cover.png" alt="Mortgage portfolio banner"/>
           <div class="body">
             <h3>Mortgage Client Portfolio Analysis</h3>
@@ -306,7 +306,7 @@
           </div>
         </a>
 
-        <a class="card reveal delay-2" href="customer-churn-analysis/index.html">
+        <a class="card reveal delay-2" href="customer-churn-analysis/">
           <img src="customer-churn-analysis/assets/churn_cover.png" alt="Customer churn banner"/>
           <div class="body">
             <h3>Customer Churn Analysis</h3>
@@ -427,251 +427,6 @@
       });
     }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  </script>
-</body>
-</html>
-
-
-
-
-
-
-
-Sources
-You said:
-can you please?
-
-
-ChatGPT said:
-
-Thought for 7s
-Got you. Here are the three full project pages to paste in:
-
-1) healthcare-clinic-efficiency/index.html
-html
-Copy code
-<!doctype html>
-<html lang="en" data-theme="auto">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Healthcare Clinic Efficiency | Arjun Puri</title>
-  <link rel="stylesheet" href="../assets/site.css"/>
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <meta name="description" content="Wait times, no-show trends, and provider utilization analysis. SQL + Tableau.">
-  <style>
-    .hero img{max-width:100%;border-radius:16px}
-    .charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-    .charts img{width:100%;border-radius:14px;border:1px solid rgba(120,130,160,.25)}
-    .back{display:inline-block;margin:.5rem 0 1rem}
-  </style>
-</head>
-<body>
-  <div class="container">
-    <a class="back" href="../index.html">← Back to Portfolio</a>
-
-    <section class="hero reveal">
-      <img src="assets/healthcare_cover.png" alt="Healthcare clinic efficiency banner">
-      <h1>Healthcare Clinic Efficiency</h1>
-      <p>Analyzed appointment data to identify wait time patterns, no-show trends, and provider utilization.
-         Queries in SQL; visuals akin to Tableau dashboards.</p>
-    </section>
-
-    <section class="section reveal">
-      <h2>Key Insights</h2>
-      <ul>
-        <li>Average wait times exceeded benchmarks for some providers (25+ mins).</li>
-        <li>No-shows peaked in late spring, especially ages 18–34.</li>
-        <li>Overbooking correlated with longer waits and missed visits.</li>
-      </ul>
-    </section>
-
-    <section class="section reveal">
-      <h2>Charts</h2>
-      <div class="charts">
-        <figure>
-          <img src="assets/Chart_Avg_Wait_Time.png" alt="Average Wait Time by Provider">
-          <figcaption>Average Wait Time by Provider</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/Chart_Monthly_Visits.png" alt="Monthly Visits and No-Shows">
-          <figcaption>Monthly Visits &amp; No-Shows</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/Chart_NoShow_Age.png" alt="No-Show Rate by Age Group">
-          <figcaption>No-Show Rate by Age Group</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="section reveal">
-      <h2>Files</h2>
-      <ul>
-        <li><a href="SQL_Queries.sql">SQL_Queries.sql</a></li>
-        <li><a href="Healthcare_CaseStudy_MockData.xlsx">Healthcare_CaseStudy_MockData.xlsx</a></li>
-      </ul>
-    </section>
-
-    <div class="footer reveal">
-      © <script>document.write(new Date().getFullYear())</script> Arjun Puri
-    </div>
-  </div>
-
-  <script>
-    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -60px 0px"});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  </script>
-</body>
-</html>
-2) mortgage-client-portfolio-analysis/index.html
-html
-Copy code
-<!doctype html>
-<html lang="en" data-theme="auto">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Mortgage Client Portfolio Analysis | Arjun Puri</title>
-  <link rel="stylesheet" href="../assets/site.css"/>
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <meta name="description" content="Mortgage client payment behavior and risk trends. SQL + Excel dashboards.">
-  <style>
-    .hero img{max-width:100%;border-radius:16px}
-    .charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-    .charts img{width:100%;border-radius:14px;border:1px solid rgba(120,130,160,.25)}
-    .back{display:inline-block;margin:.5rem 0 1rem}
-  </style>
-</head>
-<body>
-  <div class="container">
-    <a class="back" href="../index.html">← Back to Portfolio</a>
-
-    <section class="hero reveal">
-      <img src="assets/mortgage_cover.png" alt="Mortgage portfolio banner">
-      <h1>Mortgage Client Portfolio Analysis</h1>
-      <p>Analyzed ~100 client accounts to uncover payment behavior, delinquency patterns, and balances. 
-         SQL extracts with Excel dashboards for reporting.</p>
-    </section>
-
-    <section class="section reveal">
-      <h2>Key Insights</h2>
-      <ul>
-        <li>Higher delinquency observed on longer loan terms.</li>
-        <li>Late payments clustered in a few months indicating seasonal risk.</li>
-        <li>Loan amount distribution skew suggested targeted monitoring.</li>
-      </ul>
-    </section>
-
-    <section class="section reveal">
-      <h2>Charts</h2>
-      <div class="charts">
-        <figure>
-          <img src="assets/Chart_Delinquency_Loan_Term.png" alt="Delinquency by Loan Term">
-          <figcaption>Delinquency by Loan Term</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/Chart_Loan_Amount_Distribution.png" alt="Loan Amount Distribution">
-          <figcaption>Loan Amount Distribution</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/Chart_Monthly_Late_Payments.png" alt="Monthly Late Payments">
-          <figcaption>Monthly Late Payments</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="section reveal">
-      <h2>Files</h2>
-      <ul>
-        <li><a href="SQL_Queries.sql">SQL_Queries.sql</a></li>
-        <li><a href="Mortgage_Data.xlsx">Mortgage_Data.xlsx</a></li>
-      </ul>
-    </section>
-
-    <div class="footer reveal">
-      © <script>document.write(new Date().getFullYear())</script> Arjun Puri
-    </div>
-  </div>
-
-  <script>
-    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -60px 0px"});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  </script>
-</body>
-</html>
-3) customer-churn-analysis/index.html
-html
-Copy code
-<!doctype html>
-<html lang="en" data-theme="auto">
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Customer Churn Analysis | Arjun Puri</title>
-  <link rel="stylesheet" href="../assets/site.css"/>
-  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <meta name="description" content="Churn drivers by plan, complaints, and usage. SQL + Python.">
-  <style>
-    .hero img{max-width:100%;border-radius:16px}
-    .charts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-    .charts img{width:100%;border-radius:14px;border:1px solid rgba(120,130,160,.25)}
-    .back{display:inline-block;margin:.5rem 0 1rem}
-  </style>
-</head>
-<body>
-  <div class="container">
-    <a class="back" href="../index.html">← Back to Portfolio</a>
-
-    <section class="hero reveal">
-      <img src="assets/churn_cover.png" alt="Customer churn banner">
-      <h1>Customer Churn Analysis</h1>
-      <p>Modeled attrition using plan type, tenure, complaints, and usage. 
-         SQL to prepare cohorts; Python for analysis &amp; visuals.</p>
-    </section>
-
-    <section class="section reveal">
-      <h2>Key Insights</h2>
-      <ul>
-        <li>Higher churn on month-to-month plans; long-tenure customers retained better.</li>
-        <li>Complaint frequency correlated strongly with churn probability.</li>
-        <li>Under- or over-utilization segments showed elevated churn risk.</li>
-      </ul>
-    </section>
-
-    <section class="section reveal">
-      <h2>Charts</h2>
-      <div class="charts">
-        <figure>
-          <img src="assets/Chart_Churn_By_Plan_Final.png" alt="Churn by Plan Type">
-          <figcaption>Churn by Plan Type</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/Chart_Complaints_vs_Churn_Final.png" alt="Complaints vs Churn">
-          <figcaption>Complaints vs Churn</figcaption>
-        </figure>
-        <figure>
-          <img src="assets/Chart_Usage_vs_Churn_Final.png" alt="Usage vs Churn">
-          <figcaption>Usage vs Churn</figcaption>
-        </figure>
-      </div>
-    </section>
-
-    <section class="section reveal">
-      <h2>Files</h2>
-      <ul>
-        <li><a href="SQL_Queries.sql">SQL_Queries.sql</a></li>
-        <li><a href="Churn_Data.xlsx">Churn_Data.xlsx</a></li>
-      </ul>
-    </section>
-
-    <div class="footer reveal">
-      © <script>document.write(new Date().getFullYear())</script> Arjun Puri
-    </div>
-  </div>
-
-  <script>
-    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target)}}),{threshold:.12,rootMargin:"0px 0px -60px 0px"});
-    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   </script>
 </body>
 </html>
