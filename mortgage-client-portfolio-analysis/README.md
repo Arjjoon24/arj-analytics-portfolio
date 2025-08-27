@@ -8,44 +8,41 @@ This project analyzes a portfolio of ~100 mortgage clients to uncover patterns i
 ---
 
 ### 🎯 Objectives
-- Clean and structure raw mortgage account data for reporting
-- Analyze payment behavior, balances, and delinquency patterns
-- Build automated reporting to support decision-making for client management
+- Clean and structure raw mortgage account data for reporting  
+- Analyze payment behavior, balances, and delinquency patterns  
+- Build automated reporting to support decision-making for client management  
 
 ---
 
 ### 🧰 Tools
-**SQL** (queries & aggregations) • **Excel & Tableau** (dashboards) • **Python (light)** for data cleaning
+**SQL** (queries & aggregations) • **Excel & Tableau** (dashboards) • **Python (light)** for data cleaning  
 
 ---
 
 ### 📈 Key Insights
-- Identified clients at highest risk of missed payments using loan age and payment history  
+- Identified clients at highest risk of missed payments using loan term and payment history  
 - Found clusters of late payments around variable interest rate adjustments  
-- Automated recurring reports reduced manual reporting time significantly
+- Automated recurring reports reduced manual reporting time significantly  
 
 ---
 
 ## 📊 Visuals
 
-![Delinquency Trends](assets/Chart_Delinquency_Trends.png)  
-*Monthly delinquency rate across the portfolio.*
+![Delinquency by Loan Term](assets/Chart_Delinquency_Loan_Term.png)  
+*Delinquency rates segmented by loan term.*
 
-![Payment Timeliness](assets/Chart_Payment_Timeliness.png)  
-*On-time vs late payments by customer segment.*
+![Loan Amount Distribution](assets/Chart_Loan_Amount_Distribution.png)  
+*Distribution of loan amounts across the portfolio.*
 
-![Outstanding Balance Buckets](assets/Chart_Outstanding_Balance_Buckets.png)  
-*Distribution of outstanding balances.*
-
-> **Note:** If your chart filenames differ, update the paths above or rename your files to match:
-> `Chart_Delinquency_Trends.png`, `Chart_Payment_Timeliness.png`, `Chart_Outstanding_Balance_Buckets.png`.
+![Monthly Late Payments](assets/Chart_Monthly_Late_Payments.png)  
+*Trend of late payments across months.*
 
 ---
 
 ### 📂 Files
 - `SQL_Queries.sql` — portfolio queries  
 - `Mortgage_CaseStudy_MockData.xlsx` — simulated client & payment data  
-- `assets/` — banner + exported charts
+- `assets/` — banner + exported charts  
 
 ---
 
