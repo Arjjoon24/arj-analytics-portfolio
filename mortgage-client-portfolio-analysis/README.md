@@ -1,59 +1,43 @@
-![Banner](assets/mortgage_cover.png)
+![Cover](assets/mortgage_cover.png)
 
-# 🏦 Mortgage Client Portfolio Analysis
+# 🏡 Mortgage Client Portfolio Analysis
 
-### Overview
-This project analyzes a portfolio of ~100 mortgage clients to uncover patterns in payment behavior, account risk, and opportunities to improve reporting efficiency. Based on real-world responsibilities from my role at Sunrise Credit Solutions, it demonstrates end-to-end data handling — from cleaning and structuring client data to building automated reports and actionable insights.
-
----
-
-### 🎯 Objectives
-- Clean and structure raw mortgage account data for reporting  
-- Analyze payment behavior, balances, and delinquency patterns  
-- Build automated reporting to support decision-making for client management  
+### Objective  
+Analyze payment behavior, delinquency trends, and loan characteristics to identify portfolio risks and client segments requiring attention.
 
 ---
 
-### 🧰 Tools
-**SQL** (queries & aggregations) • **Excel & Tableau** (dashboards) • **Python (light)** for data cleaning  
+### 🔍 Key Questions:
+- What are the delinquency trends by loan term length?  
+- How are loan amounts distributed across clients?  
+- Which months see the highest rate of late payments?  
+- Are there patterns in repayment that suggest early risk indicators?  
 
 ---
 
-### 📈 Key Insights
-- Identified clients at highest risk of missed payments using loan term and payment history  
-- Found clusters of late payments around variable interest rate adjustments  
-- Automated recurring reports reduced manual reporting time significantly  
+### 🛠️ Tools Used  
+SQL • Excel • Tableau • Data Visualization • Financial Analytics  
 
 ---
 
-## 📊 Visuals
-
-![Delinquency by Loan Term](assets/Chart_Delinquency_Loan_Term.png)  
-*Delinquency rates segmented by loan term.*
-
-![Loan Amount Distribution](assets/Chart_Loan_Amount_Distribution.png)  
-*Distribution of loan amounts across the portfolio.*
-
-![Monthly Late Payments](assets/Chart_Monthly_Late_Payments.png)  
-*Trend of late payments across months.*
+### 📈 Key Insights:
+- Clients with **longer loan terms (30+ years)** showed higher delinquency rates compared to shorter terms.  
+- Loan amounts are **skewed toward mid-range values ($200k–$400k)** with fewer very high-value loans.  
+- Late payments spiked in **March and September**, aligning with seasonal financial stress points.  
+- Recommendations included **targeted outreach to high-risk loan segments** and **closer monitoring of seasonal delinquency cycles**.  
 
 ---
 
-### 📂 Files
-- `SQL_Queries.sql` — portfolio queries  
-- `Mortgage_CaseStudy_MockData.xlsx` — simulated client & payment data  
-- `assets/` — banner + exported charts  
+### 📊 Visuals  
+Here are some of the key static charts from the analysis:  
+
+- ![Delinquency by Loan Term](assets/Chart_Delinquency_Loan_Term.png)  
+- ![Loan Amount Distribution](assets/Chart_Loan_Amount_Distribution.png)  
+- ![Monthly Late Payments](assets/Chart_Monthly_Late_Payments.png)  
 
 ---
 
-## ▶️ (Optional) Interactive Dashboard
-If you’ve published to Tableau Public, embed below:
-
-<iframe
-  src="YOUR_TABLEAU_PUBLIC_EMBED_URL"
-  width="100%"
-  height="650"
-  frameborder="0"
-  allowfullscreen
-  title="Mortgage Portfolio Dashboard"
-></iframe>
+### 📂 Files Included  
+- `SQL_Queries.sql`: All queries used in the analysis  
+- `Mortgage_CaseStudy_MockData.xlsx`: Simulated mortgage portfolio data  
+- `/assets`: Project visuals (charts and cover images)  
