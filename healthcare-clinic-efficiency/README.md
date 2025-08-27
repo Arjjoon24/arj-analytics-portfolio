@@ -28,6 +28,19 @@ SQL • Excel • Tableau • Data Visualization • Healthcare Analytics
 
 ---
 
+## 📊 Visuals
+
+![Average Wait Time](assets/Chart_Avg_Wait_Time.png)  
+*Average patient wait times by provider.*
+
+![Monthly Visits](assets/Chart_Monthly_Visits.png)  
+*Monthly clinic visit trends.*
+
+![No-Show by Age](assets/Chart_NoShow_Age.png)  
+*No-show rates segmented by patient age.*
+
+---
+
 ### 📂 Files Included
 - `SQL_Queries.sql`: All queries used in the analysis
 - `Healthcare_CaseStudy_MockData.xlsx`: Simulated patient data
