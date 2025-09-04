@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Blue Jays Performance Analytics | Arjun Puri</title>
+
+  <!-- Basic social preview -->
+  <meta name="description" content="Blue Jays performance analytics — player trends, lineup efficiency, and win expectancy. SQL + Python visuals by Arjun Puri.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Blue Jays Performance Analytics | Arjun Puri">
+  <meta property="og:description" content="Blue Jays performance analytics — player trends, lineup efficiency, and win expectancy. SQL + Python visuals by Arjun Puri.">
+  <meta property="og:image" content="assets/bluejays_cover.png">
+
+  <style>
+    :root{
+      --bg:#0f1320; --card:#141a2a; --text:#eaf0ff; --muted:#a9b3c9;
+      --accent:#6ea8fe; --accent2:#b07cff; --border:#233055;
+      --link:#9ec3ff;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f8ff; --card:#ffffff; --text:#0e1220; --muted:#55607a;
+        --accent:#3b7cff; --accent2:#7a4bff; --border:#dfe4f7;
+        --link:#1e4fd6;
+      }
+    }
+    * { box-sizing: border-box; }
+    html,body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    a { color: var(--link); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .wrap { max-width: 980px; margin: 32px auto 64px; padding: 0 16px; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:16px; }
+    .back { display:inline-flex; align-items:center; gap:8px; padding:8px 12px; border:1px solid var(--border); border-radius:999px; background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 12%, transparent), color-mix(in srgb, var(--accent2) 12%, transparent)); color:var(--text); font-weight:600; text-decoration:none; }
+    .back:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.25); text-decoration:none; }
+
+    .hero { display:grid; grid-template-columns: 1fr; gap:16px; align-items:start; }
+    .hero img { width:100%; height:auto; border-radius:16px; border:1px solid var(--border); box-shadow: 0 10px 24px rgba(0,0,0,.22); }
+    .card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow: 0 6px 16px rgba(0,0,0,.18); }
+    h1 { margin:10px 0 8px; font-size: clamp(26px, 4vw, 36px); }
+    h2 { margin:28px 0 12px; font-size: clamp(20px, 3vw, 24px); }
+    p { line-height:1.6; color:var(--muted); }
+    ul { margin:10px 0 0 18px; color:var(--muted); }
+    li { margin:6px 0; }
+
+    .grid { display:grid; grid-template-columns: 1fr; gap:16px; }
+    .charts { display:grid; grid-template-columns: 1fr; gap:16px; }
+    .chart img { width:100%; height:auto; border-radius:12px; border:1px solid var(--border); display:block; }
+
+    .meta { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+    .pill { border:1px solid var(--border); padding:6px 10px; border-radius:999px; font-weight:600; background:#1b2440; }
+    @media (prefers-color-scheme: light){ .pill { background:#eef2ff; color:#1a2350; } }
+
+    .links { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .btn { display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; border:1px solid var(--border); background:linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, transparent), color-mix(in srgb, var(--accent2) 10%, transparent)); color:var(--text); font-weight:700; text-decoration:none; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,.25); text-decoration:none; }
+
+    footer { margin-top:36px; color:var(--muted); font-size:14px; text-align:center; }
+    code,kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="../index.html" aria-label="Back to portfolio">← Back to Portfolio</a>
+      <span style="opacity:.7">Arjun Puri</span>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+      <img src="assets/bluejays_cover.png" alt="Blue Jays performance analytics cover image"/>
+      <div class="card">
+        <h1>Blue Jays Performance Analytics</h1>
+        <p>End-to-end analysis of the Toronto Blue Jays using SQL + Python: player trends, lineup efficiency, bullpen usage, and game-level performance. Includes reproducible queries and charts.</p>
+        <div class="meta">
+          <span class="pill">SQL</span>
+          <span class="pill">Python (pandas)</span>
+          <span class="pill">Matplotlib</span>
+          <span class="pill">Sports Analytics</span>
+        </div>
+        <div class="links">
+          <a class="btn" href="./README.md">View Project README</a>
+          <a class="btn" href="https://github.com/Arjjoon24/arj-analytics-portfolio/tree/main/blue-jays-performance-analytics" target="_blank" rel="noopener">View Folder on GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK INSIGHTS -->
+    <section class="grid" style="margin-top:16px;">
+      <div class="card">
+        <h2>Key Questions</h2>
+        <ul>
+          <li>Which lineups generate the most runs per game and why?</li>
+          <li>How does bullpen usage impact late-inning run prevention?</li>
+          <li>Which players are the biggest drivers of win probability swings?</li>
+          <li>How do performance patterns change vs. division rivals?</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Highlights</h2>
+        <ul>
+          <li>Coming soon — this section will summarize the top 3–4 insights after data prep.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CHARTS -->
+    <section class="card" style="margin-top:16px;">
+      <h2>Visuals</h2>
+      <div class="charts">
+        <figure class="chart">
+          <img src="assets/Chart_Runs_By_Game.png" alt="Runs per game over the season (line chart)"/>
+          <figcaption>Runs per Game Over the Season</figcaption>
+        </figure>
+        <figure class="chart">
+          <img src="assets/Chart_Pitcher_Efficiency.png" alt="Pitcher efficiency and bullpen usage (scatter or bars)"/>
+          <figcaption>Pitcher Efficiency & Bullpen Usage</figcaption>
+        </figure>
+        <figure class="chart">
+          <img src="assets/Chart_Win_Expectancy.png" alt="Win expectancy by game state (line/area)"/>
+          <figcaption>Win Expectancy by Game State</figcaption>
+        </figure>
+      </div>
+      <p style="margin-top:10px; color:var(--muted);">Charts will render once images are uploaded to <code>blue-jays-performance-analytics/assets/</code>.</p>
+    </section>
+
+    <footer>
+      <p>© <script>document.write(new Date().getFullYear())</script> Arjun Puri · <a href="../index.html">Back to Portfolio</a></p>
+      <p style="margin-top:6px">Built by me in hand-written HTML/CSS. Charts will be generated from SQL → Python (pandas/matplotlib). No site builders used.</p>
+    </footer>
+  </div>
+</body>
+</html>
