@@ -38,10 +38,10 @@ Welcome 👋 This repository showcases my analytics projects where I use **SQL, 
 ### 4. [Blue Jays Performance Analytics](./blue-jays-performance-analytics/README.md)  
 ![Blue Jays Cover](blue-jays-performance-analytics/assets/bluejays_cover.png)  
 
-- End-to-end analysis of the **Toronto Blue Jays** using **SQL + Python (pandas/matplotlib)**  
-- Explored **hitting, pitching, lineup efficiency, and attendance patterns**  
-- Generated 6 polished visuals (batting leaders, strikeouts, runs by month, attendance, team comparison)  
-- Built a clean `index.html` showcase page for recruiter-friendly presentation  
+- Analyzed **hitting, pitching, lineup efficiency, and attendance patterns** for the Toronto Blue Jays  
+- Built SQL queries and a Python workflow to generate **six polished visuals** (batting leaders, strikeouts, runs by month, attendance, team comparison)  
+- Delivered a clean `index.html` showcase page for recruiter-friendly presentation  
+- Includes **SQL_Queries.sql** and **BlueJays_CaseStudy_MockData.xlsx** for reproducibility  
 
 ---
 
