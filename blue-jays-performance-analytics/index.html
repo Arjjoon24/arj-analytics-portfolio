@@ -95,47 +95,18 @@
           <li>How does bullpen usage impact late-inning run prevention?</li>
           <li>Which players are the biggest drivers of win probability swings?</li>
           <li>How do performance patterns change vs. division rivals?</li>
+          <li>Do home attendance levels move with performance streaks and marquee series?</li>
         </ul>
       </div>
-
       <div class="card">
-        <h2>Highlights (clear takeaways from the visuals)</h2>
+        <h2>Highlights</h2>
         <ul>
-          <li><strong>Contact sets the table; power clears it.</strong> In <em>Batting Average – Top Hitters</em> you can spot the consistent on-base bats. Pair that with <em>Home Run Leaders</em> and you get a simple story: when high-contact hitters reach first, sluggers behind them convert those baserunners into runs. This blend explains the scoring lifts seen in <em>Runs by Month</em>.</li>
-
-          <li><strong>Strikeouts stabilize late innings.</strong> <em>Pitcher Strikeouts – Rotation &amp; Bullpen</em> highlights who misses bats reliably. Fewer balls in play late = fewer chances for bad hops or seeing-eye singles. That’s why strong K arms in relief often align with fewer late-inning runs allowed and steadier finishes.</li>
-
-          <li><strong>Run production is “spiky.”</strong> In <em>Runs by Month</em>, you’ll notice clear peaks and dips. These usually coincide with hot streaks from key hitters (see <em>Home Run Leaders</em>) or stretches where on-base leaders and sluggers were both rolling. It’s normal for scoring to be lumpy rather than flat.</li>
-
-          <li><strong>Context vs. division matters.</strong> <em>Team Comparison – Division Snapshot</em> puts performance next to rivals. Division games are leverage points: small improvements vs. these opponents magnify playoff odds because you climb while they fall.</li>
+          <li><strong>Contact + power balance drives scoring:</strong> High-contact hitters keep innings alive, while HR bursts (see <em>Home Run Leaders</em>) turn them into big run innings — visible in <em>Runs by Month</em>.</li>
+          <li><strong>Strikeout arms stabilize games:</strong> Relief pitchers with strong K-rates limit damage in late innings (<em>Pitcher Strikeouts</em>), preserving win probability.</li>
+          <li><strong>Run production rhythm:</strong> Monthly scoring shows peaks when lineups are consistent, troughs when contact or power slumps — a key factor for team momentum.</li>
+          <li><strong>Rivalry pressure shows gaps:</strong> Division comparisons highlight where Jays match rivals (pitching) and where they lag (sustained scoring).</li>
+          <li><strong>Fan demand mirrors performance:</strong> Attendance spikes line up with win streaks and marquee rival series, and dip after quiet offensive stretches.</li>
         </ul>
-        <p style="color:var(--muted); margin-top:8px;"><em>Note:</em> These are chart-driven interpretations meant for portfolio storytelling. For production use, you’d compute lineup-level and leverage-situation stats directly from game logs.</p>
-      </div>
-
-      <div class="card">
-        <h2>Answers to the Key Questions (explained simply)</h2>
-
-        <h3 style="margin-top:8px;">1) Which lineups generate the most runs per game and why?</h3>
-        <p><strong>What we looked at:</strong> <em>Batting Average – Top Hitters</em> (who gets on), <em>Home Run Leaders</em> (who drives them in), and <em>Runs by Month</em> (when runs spiked).</p>
-        <p><strong>What it suggests:</strong> The best scoring stretches happen when contact hitters (high AVG) consistently reach base and are followed by power bats. That order creates more chances for extra-base hits to cash in runners.</p>
-        <p><strong>Why it matters:</strong> Placing high-OBP/AVG hitters ahead of sluggers is a simple, repeatable way to raise runs per game.</p>
-
-        <h3>2) How does bullpen usage impact late-inning run prevention?</h3>
-        <p><strong>What we looked at:</strong> <em>Pitcher Strikeouts – Rotation &amp; Bullpen</em>.</p>
-        <p><strong>What it suggests:</strong> When late innings go to high-strikeout relievers, fewer balls get put in play, which reduces “random” hits. That typically lowers blown leads and steadies late-game outcomes.</p>
-        <p><strong>Why it matters:</strong> Assigning the highest-K arms to the highest-leverage innings is an efficient, evidence-aligned usage pattern.</p>
-
-        <h3>3) Which players are the biggest drivers of win probability swings?</h3>
-        <p><strong>What we looked at:</strong> <em>Home Run Leaders</em> (impact swings) + the timing of run spikes in <em>Runs by Month</em>.</p>
-        <p><strong>What it suggests:</strong> Sluggers often create the largest single-play swings (HRs). When a power bat heats up, you see corresponding bumps in monthly run totals and likely in game outcomes.</p>
-        <p><strong>Why it matters:</strong> Identifying which bats move the needle most helps with lineup protection and late-game pinch-hit decisions.</p>
-
-        <h3>4) How do performance patterns change vs. division rivals?</h3>
-        <p><strong>What we looked at:</strong> <em>Team Comparison – Division Snapshot</em>.</p>
-        <p><strong>What it suggests:</strong> Even small edges vs. division opponents matter outsized amounts because those games are “two-way swings” in the standings.</p>
-        <p><strong>Why it matters:</strong> Targeted prep (pitch mix plans, defensive positioning, platoons) specifically for division opponents can create the most leverage per game.</p>
-
-        <p style="color:var(--muted); margin-top:10px;"><em>Reminder:</em> These are clear, chart-guided explanations for a portfolio demo. If we wired up game-level data, we’d calculate lineup-specific run rates, leverage-weighted bullpen metrics, and opponent-split KPIs to confirm each point numerically.</p>
       </div>
     </section>
 
@@ -145,7 +116,7 @@
       <div class="charts">
         <figure class="chart">
           <img src="assets/chart1_batting_avg.png" alt="Blue Jays batting averages chart"/>
-          <figcaption>Batting Average – Top Hitters</figcaption>
+          <figcaption>Blue Jays Batting Averages</figcaption>
         </figure>
         <figure class="chart">
           <img src="assets/chart2_hr_leaders.png" alt="Blue Jays home run leaders chart"/>
@@ -153,21 +124,43 @@
         </figure>
         <figure class="chart">
           <img src="assets/chart3_pitcher_strikeouts.png" alt="Blue Jays pitcher strikeouts chart"/>
-          <figcaption>Pitcher Strikeouts – Rotation &amp; Bullpen</figcaption>
+          <figcaption>Pitcher Strikeouts</figcaption>
         </figure>
         <figure class="chart">
           <img src="assets/chart4_runs_by_month.png" alt="Blue Jays runs scored by month chart"/>
-          <figcaption>Runs Scored by Month</figcaption>
+          <figcaption>Runs by Month</figcaption>
         </figure>
         <figure class="chart">
           <img src="assets/chart5_attendance.png" alt="Blue Jays attendance trends chart"/>
-          <figcaption>Attendance Trend</figcaption>
+          <figcaption>Attendance Trends</figcaption>
         </figure>
         <figure class="chart">
           <img src="assets/chart6_team_comparison.png" alt="Team comparison chart"/>
-          <figcaption>Team Comparison – Division Snapshot</figcaption>
+          <figcaption>Blue Jays vs. Other Teams</figcaption>
         </figure>
       </div>
+    </section>
+
+    <!-- ANSWERS -->
+    <section class="card" style="margin-top:16px;">
+      <h2>Answers to the Key Questions (Based on Mock Data)</h2>
+      <ol>
+        <li><strong>Which lineups generate the most runs per game and why?</strong><br/>
+          Lineups that stack high-contact hitters ahead of power bats produce the most runs. Consistency is shown in <em>Batting Average – Top Hitters</em>, while power bursts in <em>Home Run Leaders</em> convert those baserunners into runs, as reflected in <em>Runs by Month</em>.
+        </li>
+        <li><strong>How does bullpen usage impact late-inning run prevention?</strong><br/>
+          Late-inning stability improves when high-strikeout relievers are used consistently. <em>Pitcher Strikeouts – Rotation &amp; Bullpen</em> highlights arms that minimize scoring threats and protect narrow leads.
+        </li>
+        <li><strong>Which players are the biggest drivers of win probability swings?</strong><br/>
+          Players with strong on-base skills and power output show the largest WPA impact. <em>Batting Average</em> keeps innings alive, while <em>Home Run Leaders</em> shows who delivers decisive swings.
+        </li>
+        <li><strong>How do performance patterns change vs. division rivals?</strong><br/>
+          The <em>Team Comparison</em> chart shows Jays pitching compares well in strikeouts but offensive output lags behind rivals, underlining why close games can tilt away in the standings.
+        </li>
+        <li><strong>Do home attendance levels move with performance streaks and marquee series?</strong><br/>
+          Yes. <em>Attendance Trend</em> peaks line up with higher-scoring months in <em>Runs by Month</em> and rivalry series in <em>Team Comparison</em>. This suggests fan demand rises when performance is strong and opponents are marquee, and dips during quieter stretches.
+        </li>
+      </ol>
     </section>
 
     <footer>
