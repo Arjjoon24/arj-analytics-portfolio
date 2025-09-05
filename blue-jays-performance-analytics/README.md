@@ -44,16 +44,16 @@ End-to-end analysis of the **Toronto Blue Jays** using **SQL + Python (pandas/ma
 ---
 
 ## 🔑 Highlights / Early Insights
-- **Consistent contact** from top hitters correlates with monthly run spikes.
-- **Strikeout leaders** in the rotation anchor late-inning win probability.
-- **Monthly run production** shows a mid-season lift that aligns with lineup stability.
-- **Attendance** trends mirror performance streaks and marquee series.
-
-*(Can be expanded as deeper analysis is added.)*
+- **Contact consistency matters**: Top hitters with high batting averages consistently pushed the Jays’ run totals higher, even during months when the overall lineup struggled. This shows how steady on-base performance fuels scoring opportunities.  
+- **Power as a difference-maker**: Home run leaders created sudden bursts in run production. When HR totals spiked, monthly runs jumped noticeably, proving that power hitting acted as a force multiplier on top of batting average.  
+- **Pitching depth wins games**: Strikeout-heavy starters and efficient bullpen arms helped control late innings, reducing run leakage and stabilizing win probability. Pitchers with consistent strikeout rates gave the team an edge in close games.  
+- **Mid-season surge tied to lineup stability**: Runs scored by month revealed a mid-season boost that aligned with more consistent lineups and fewer injuries. Stable batting orders gave players rhythm and contributed to higher scoring output.  
+- **Fan support follows performance**: Attendance trends spiked during winning streaks and marquee division series. This reflects how on-field success and rivalry matchups translate directly into fan engagement and ticket sales.  
+- **Division rivals define context**: Team comparison charts show how the Jays stacked up against key competitors. Strengths in pitching strikeouts kept the team competitive, but inconsistent run production versus rivals highlighted areas for improvement.  
 
 ---
 
-## 📂 Project Structure  
+## 📂 Project Structure 
 ```
 blue-jays-performance-analytics/
 │── assets/
