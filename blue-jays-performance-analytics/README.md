@@ -1,49 +1,80 @@
-# ⚾ Blue Jays Performance Analytics  
+![Cover](assets/bluejays_cover.png)
 
-This project analyzes player and team performance for the **Toronto Blue Jays**, blending **SQL** and **Python** to extract insights from game and player-level data. The goal is to evaluate performance trends, highlight standout players, and uncover factors that drive wins and losses.  
+# ⚾ Blue Jays Performance Analytics
 
----
-
-## 🎯 Project Goals  
-- Analyze **hitting and pitching performance** at both player and team levels  
-- Identify **season trends** (e.g., batting averages, strikeouts, ERA)  
-- Compare individual contributions to overall team success  
-- Use **SQL** for structured queries and **Python** for deeper analysis and visualization  
+End-to-end analysis of the **Toronto Blue Jays** using **SQL + Python (pandas/matplotlib)**. This project explores player trends, bullpen strength, lineup efficiency, and game-level outcomes, and presents the findings in a clean web page (`index.html`) with exportable charts.
 
 ---
 
-## 📊 Data Sources  
-- **Mock datasets** created to simulate game logs, player stats, and season summaries  
-- Includes hitting, pitching, and fielding data (CSV/Excel format in `/data`)  
+## 🎯 Objectives / Key Questions
+- Which hitters are driving on-base and slugging outcomes?
+- How does the rotation/bullpen perform in strikeouts and run prevention?
+- Where are the peaks/troughs in run production month by month?
+- How do the Jays stack up against key rivals?
 
 ---
 
-## 🛠 Tools & Methods  
-- **SQL** → Run queries for aggregations, leaderboards, and performance splits  
-- **Python (pandas, matplotlib)** → Clean data, calculate advanced metrics, and generate visuals  
-- **Charts/Dashboards** → Created from both SQL queries and Python plots, stored in `/assets`  
+## 🛠 Tools & Methods
+- **SQL** — extract and aggregate player/game stats for season trends.
+- **Python (pandas, matplotlib)** — clean data and generate visuals.
+- **HTML/CSS** — polished presentation page for a recruiter-friendly view.
 
 ---
 
-## 🔑 Key Insights (Sample)  
-- Which Blue Jays players contribute most to runs scored?  
-- How does pitching performance vary across starters vs. bullpen?  
-- What player stats are most correlated with team wins?  
+## 📊 Visuals
+
+### Batting Average – Top Hitters
+![Batting Average](assets/chart1_batting_avg.png)
+
+### Home Run Leaders
+![Home Run Leaders](assets/chart2_hr_leaders.png)
+
+### Pitcher Strikeouts – Rotation & Bullpen
+![Pitcher Strikeouts](assets/chart3_pitcher_strikeouts.png)
+
+### Runs Scored by Month
+![Runs by Month](assets/chart4_runs_by_month.png)
+
+### Attendance Trend
+![Attendance](assets/chart5_attendance.png)
+
+### Team Comparison – Division Snapshot
+![Team Comparison](assets/chart6_team_comparison.png)
 
 ---
 
-## 📂 Project Files  
-- `SQL_Queries.sql` → SQL queries for player stats, team summaries, and advanced metrics  
-- `analysis.py` → Python script for data cleaning, analysis, and chart creation  
-- `/data` → Mock datasets (CSV/Excel)  
-- `/assets` → Charts, visualizations, and cover images  
-- `index.html` → Project landing page for the live portfolio  
+## 🔑 Highlights / Early Insights
+- **Consistent contact** from top hitters correlates with monthly run spikes.
+- **Strikeout leaders** in the rotation anchor late-inning win probability.
+- **Monthly run production** shows a mid-season lift that aligns with lineup stability.
+- **Attendance** trends mirror performance streaks and marquee series.
+
+*(Can be expanded as deeper analysis is added.)*
 
 ---
 
-## 🚀 Next Steps  
-- Expand analysis to include **real MLB data sources**  
-- Create more interactive visuals (Tableau/Power BI dashboards)  
-- Compare Blue Jays stats with other MLB teams for context  
+## 📂 Project Structure  
+```
+blue-jays-performance-analytics/
+│── assets/
+│ ├── bluejays_cover.png
+│ ├── chart1_batting_avg.png
+│ ├── chart2_hr_leaders.png
+│ ├── chart3_pitcher_strikeouts.png
+│ ├── chart4_runs_by_month.png
+│ ├── chart5_attendance.png
+│ └── chart6_team_comparison.png
+│── index.html # Showcase page with charts & summary
+│── README.md # This file
+│── SQL_Queries.sql # Reproducible query set
+│── BlueJays_CaseStudy_MockData.xlsx
+```
+---
+
+## ▶️ How to View
+- Open `index.html` in this folder (or via your GitHub Pages link) to see a clean, scrollable summary with all six charts.
 
 ---
+
+## ✨ Notes
+Built from scratch (SQL ➜ Python ➜ HTML/CSS). Designed to demonstrate an **end-to-end analytics workflow** and clear storytelling for decision makers.
