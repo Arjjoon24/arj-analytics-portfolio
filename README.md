@@ -35,6 +35,16 @@ Welcome 👋 This repository showcases my analytics projects where I use **SQL, 
 
 ---
 
+### 4. [Blue Jays Performance Analytics](./blue-jays-performance-analytics/README.md)  
+![Blue Jays Cover](blue-jays-performance-analytics/assets/bluejays_cover.png)  
+
+- End-to-end analysis of the **Toronto Blue Jays** using **SQL + Python (pandas/matplotlib)**  
+- Explored **hitting, pitching, lineup efficiency, and attendance patterns**  
+- Generated 6 polished visuals (batting leaders, strikeouts, runs by month, attendance, team comparison)  
+- Built a clean `index.html` showcase page for recruiter-friendly presentation  
+
+---
+
 ## 🛠 Skills & Tools  
 
 - **SQL** (Postgres, Oracle)  
@@ -58,10 +68,14 @@ arj-analytics-portfolio/
 │── customer-churn-analysis/
 │ ├── assets/ (charts, cover images)
 │ └── README.md
+│── blue-jays-performance-analytics/
+│ ├── assets/ (charts, cover images)
+│ └── README.md
 │── assets/ (site images, favicons, resume, cover.png)
 │── index.html (portfolio live site)
 └── README.md (this file)
 ```
+
 ---
 
 ## 🌟 About Me  
@@ -73,4 +87,4 @@ I enjoy structuring messy datasets into insights that drive smarter decisions.
 
 📂 **Portfolio Repo:** [github.com/Arjjoon24/arj-analytics-portfolio](https://github.com/Arjjoon24/arj-analytics-portfolio)  
 🌐 **Live Portfolio:** [arjjoon24.github.io/arj-analytics-portfolio](https://arjjoon24.github.io/arj-analytics-portfolio/)  
-📧 **Contact:** [arjunpuri321@yahoo.com](mailto:arjunpuri321@yahoo.com)
+📧 **Contact:** [arjunpuri321@yahoo.com](mailto:arjunpuri321@yahoo.com)  
