@@ -64,11 +64,12 @@ blue-jays-performance-analytics/
 │ ├── chart4_runs_by_month.png
 │ ├── chart5_attendance.png
 │ └── chart6_team_comparison.png
-│── [index.html](index.html) # Showcase page with charts & summary
+│── index.html # Showcase page with charts & summary
 │── README.md # This file
 │── SQL_Queries.sql # Reproducible query set
 │── BlueJays_CaseStudy_MockData.xlsx
 ```
+
 ---
 
 ## ▶️ How to View
@@ -78,3 +79,10 @@ blue-jays-performance-analytics/
 
 ## ✨ Notes
 Built from scratch (SQL ➜ Python ➜ HTML/CSS). Designed to demonstrate an **end-to-end analytics workflow** and clear storytelling for decision makers.
+
+---
+
+## 🔄 How to Reproduce
+1. Run the queries in **`SQL_Queries.sql`** on the mock dataset (`BlueJays_CaseStudy_MockData.xlsx`) to extract player- and game-level stats.  
+2. Use **Python (pandas + matplotlib)** to clean, aggregate, and visualize results.  
+3. Export charts into `/assets/` and update `index.html` for a polished showcase. 
