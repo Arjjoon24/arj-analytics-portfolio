@@ -64,7 +64,7 @@ blue-jays-performance-analytics/
 │ ├── chart4_runs_by_month.png
 │ ├── chart5_attendance.png
 │ └── chart6_team_comparison.png
-│── index.html # Showcase page with charts & summary
+│── [index.html](index.html) # Showcase page with charts & summary
 │── README.md # This file
 │── SQL_Queries.sql # Reproducible query set
 │── BlueJays_CaseStudy_MockData.xlsx
